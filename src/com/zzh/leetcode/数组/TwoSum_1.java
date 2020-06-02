@@ -4,10 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 两数之和
  * @author zhangzhihao
  * @date 2020/6/1 16:42
  */
 public class TwoSum_1 {
+    /**
+     *  一遍哈希表
+     */
     static class Solution {
         public static int[] twoSum(int[] nums, int target) {
             Map<Integer, Integer> map = new HashMap<>(nums.length);

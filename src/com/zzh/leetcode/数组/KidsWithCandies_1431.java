@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 拥有最多糖果的孩子
  * @author zhangzhihao
  * @date 2020/6/1 16:18
  */
 public class KidsWithCandies_1431 {
-
+    /**
+     * 枚举
+     * 首先记录持有糖果最多的孩子,然后遍历所有孩子并分配糖果和判断
+     */
     static class Solution {
         public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
             int max = candies[0];

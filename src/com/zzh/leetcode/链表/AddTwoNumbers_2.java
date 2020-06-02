@@ -3,10 +3,14 @@ package com.zzh.leetcode.链表;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
 /**
+ * 两数相加
  * @author zhangzhihao
  * @date 2020/6/1 16:58
  */
 public class AddTwoNumbers_2 {
+    /**
+     *  链表 进位
+     */
     static class Solution {
         public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode dummyNode = new ListNode(0);
@@ -50,24 +54,11 @@ public class AddTwoNumbers_2 {
             System.out.println(result);
         }
     }
+
+
+
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-
-    @Override
-    public String toString() {
-        return "ListNode{" +
-                "val=" + val +
-                ", next=" + next +
-                '}';
-    }
-}
 
 
 
