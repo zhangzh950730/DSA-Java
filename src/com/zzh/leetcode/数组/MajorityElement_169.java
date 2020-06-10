@@ -1,7 +1,5 @@
 package com.zzh.leetcode.数组;
 
-import com.zzh.geektime.chapter5_array.Array;
-
 import java.util.Arrays;
 
 /**
