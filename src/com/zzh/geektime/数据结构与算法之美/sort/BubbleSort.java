@@ -1,5 +1,7 @@
 package com.zzh.geektime.数据结构与算法之美.sort;
 
+import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+
 import javax.xml.stream.FactoryConfigurationError;
 
 /**
@@ -17,9 +19,7 @@ public class BubbleSort {
             boolean flag = false;
             for (int j = 0; j < nums.length - i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    ArrayUtils.swap(nums, j, j + 1);
                     flag = true;
                 }
             }
@@ -32,10 +32,6 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = {3, 5, 4, 1, 2, 6};
         BubbleSort.bubbleSort(nums);
-
-        for (int num : nums) {
-            System.out.print(num);
-            System.out.print(" ");
-        }
+        ArrayUtils.print(nums);
     }
 }

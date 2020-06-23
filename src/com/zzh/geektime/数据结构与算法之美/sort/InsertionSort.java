@@ -1,5 +1,7 @@
 package com.zzh.geektime.数据结构与算法之美.sort;
 
+import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+
 /**
  * @author zhangzhihao
  * @date 2020/6/21 16:04
@@ -27,9 +29,6 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] nums = {4, 5, 6, 1, 3, 2};
         insertionSort(nums);
-        for (int num : nums) {
-            System.out.print(num);
-            System.out.print(" ");
-        }
+        ArrayUtils.print(nums);
     }
 }
