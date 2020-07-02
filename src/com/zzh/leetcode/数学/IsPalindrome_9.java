@@ -1,6 +1,4 @@
-package com.zzh.leetcode;
-
-import com.sun.org.apache.xerces.internal.util.EntityResolverWrapper;
+package com.zzh.leetcode.数学;
 
 /**
  * @author zhangzhihao
