@@ -1,6 +1,5 @@
 package com.zzh.leetcode.链表;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 /**
  * 两数相加
