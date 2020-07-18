@@ -2,7 +2,6 @@ package com.zzh.geektime.数据结构与算法之美.array;
 
 /**
  * @author zhangzhihao
- * @date 2020/6/22 14:49
  */
 public class ArrayUtils {
 
