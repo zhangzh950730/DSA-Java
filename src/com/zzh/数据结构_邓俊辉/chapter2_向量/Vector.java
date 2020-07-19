@@ -2,7 +2,6 @@ package com.zzh.数据结构_邓俊辉.chapter2_向量;
 
 
 import java.util.Comparator;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -10,7 +9,7 @@ import java.util.function.Function;
  * @since 2020/7/18 23:24
  */
 public class Vector<T> implements Comparator<T> {
-    protected T[] elements;
+    protected Object[] elements;
     protected int size;
     protected static final int DEFAULT_CAPACITY = 3;
 
@@ -19,7 +18,7 @@ public class Vector<T> implements Comparator<T> {
     }
 
     public Vector(int capacity) {
-        elements = (T[]) new Object[capacity];
+        elements = new Object[capacity];
     }
 
     public Vector(T[] array, int lo, int hi) {
@@ -32,7 +31,7 @@ public class Vector<T> implements Comparator<T> {
     public boolean insert(int index, T e) {
         expand();
         for (int i = size; i > index; i--) {
-            elements[i] = elements[i - 1];
+            elements[i] = elementData(i - 1);
         }
         elements[index] = e;
         size++;
@@ -40,13 +39,17 @@ public class Vector<T> implements Comparator<T> {
     }
 
     public T remove(int index) {
-        T e = elements[index];
+        T e = elementData(index);
         remove(index, index + 1);
         return e;
     }
 
+    protected T elementData(int index) {
+        return (T) elements[index];
+    }
+
     public int find(T e, int lo, int hi) {
-        while (lo < hi-- && e != elements[hi]) {
+        while (lo < hi-- && e != elementData(hi)) {
         }
         return hi;
     }
@@ -67,7 +70,7 @@ public class Vector<T> implements Comparator<T> {
         int oldSize = this.size;
         int index = 1;
         while (index < size) {
-            if (find(elements[index], 0, index) < 0) {
+            if (find(elementData(index), 0, index) < 0) {
                 index++;
             } else {
                 remove(index);
@@ -79,7 +82,7 @@ public class Vector<T> implements Comparator<T> {
     public int disordered() {
         int n = 0;
         for (int i = 1; i < size; i++) {
-            if (compare(elements[i - 1], elements[i]) > 0) {
+            if (compare(elementData(i - 1), elementData(i)) > 0) {
                 n++;
             }
         }
@@ -88,13 +91,13 @@ public class Vector<T> implements Comparator<T> {
 
     public void traverse(Function<T, T> function) {
         for (int i = 0; i < size; i++) {
-            elements[i] = function.apply(elements[i]);
+            elements[i] = function.apply(elementData(i));
         }
     }
 
     protected void shrink() {
-        T[] old = this.elements;
-        elements = (T[]) new Object[size];
+        Object[] old = this.elements;
+        elements = new Object[size];
         for (int i = 0; i < size; i++) {
             elements[i] = old[i];
         }
@@ -104,8 +107,8 @@ public class Vector<T> implements Comparator<T> {
         if (elements.length < size) {
             return;
         }
-        T[] old = elements;
-        elements = (T[]) new Object[size * 2];
+        Object[] old = elements;
+        elements = new Object[size * 2];
         for (int i = 0; i < size; i++) {
             elements[i] = old[i];
         }
@@ -114,9 +117,9 @@ public class Vector<T> implements Comparator<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
-        sb.append(elements[0]);
+        sb.append(elementData(0));
         for (int i = 1; i < elements.length; i++) {
-            sb.append(", ").append(elements[i]);
+            sb.append(", ").append(elementData(i));
         }
         sb.append("}");
         return sb.toString();
