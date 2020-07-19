@@ -5,6 +5,7 @@ import kotlin.Deprecated;
 import java.util.Arrays;
 
 /**
+ * 斐波那契数列
  * @author <a href="zhangzh950730@gmail.com" >ZhangZhiHao</a>
  * @since 2020/7/18 14:54
  */
