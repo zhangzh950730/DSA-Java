@@ -1,7 +1,6 @@
-package com.zzh.数据结构与算法分析.chapter3_表_栈和队列.C_Java_Collections_API中的表;
+package com.zzh.数据结构与算法分析.chapter3_表_栈和队列.Java_Collections_API中的表;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
