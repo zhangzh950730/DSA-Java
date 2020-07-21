@@ -1,6 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter2_向量;
 
-import javafx.util.Pair;
+import kotlin.Pair;
 
 /**
  * @author zhangzhihao
@@ -26,25 +26,34 @@ public class OrderedVector extends Vector<Integer> {
 
     public static int search(OrderedVector vector, Integer e, int lo, int hi) {
         Pair<Boolean, Fib> fib = fib(hi - lo);
-        if (!fib.getKey()) {
-            return binSearch(vector, e, lo, hi);
+        if (!fib.getFirst()) {
+            return binSearch3(vector, e, lo, hi);
         } else {
-            return fibSearch(vector, e, lo, hi, fib.getValue());
+            return fibSearch(vector, e, lo, hi, fib.getSecond());
         }
     }
 
-    private static Pair<Boolean, Fib> fib(int size) {
-        size++;
-        Fib prev = new Fib(1, 1, new Fib(0, 0, null));
-        for (int index = 2, i = 0, j = 1; j < size; index++) {
-            j = j + i;
-            i = j - i;
-            prev = new Fib(index, j, prev);
+    /**
+     * 二分查找,左边一次,右边两次
+     */
+    public static int binSearch1(OrderedVector vector, Integer e, int lo, int hi) {
+        while (lo < hi) {
+            int mi = (lo + hi) >> 1;
+            if (e < vector.elementData(mi)) {
+                hi = mi;
+            } else if (vector.elementData(mi) < e) {
+                lo = mi + 1;
+            } else {
+                return mi;
+            }
         }
-        return new Pair<>(prev.get() == size, prev);
+        return -1;
     }
 
-    private static int fibSearch(OrderedVector vector, Integer e, int lo, int hi, Fib fib) {
+    /**
+     * 斐波那契查找
+     */
+    public static int fibSearch(OrderedVector vector, Integer e, int lo, int hi, Fib fib) {
         while (lo < hi) {
             while (hi - lo < fib.get()) {
                 fib = fib.prev;
@@ -61,9 +70,52 @@ public class OrderedVector extends Vector<Integer> {
         return -1;
     }
 
-    private static int binSearch(OrderedVector vector, Integer e, int lo, int hi) {
+    private static Pair<Boolean, Fib> fib(int size) {
+        size++;
+        Fib prev = new Fib(1, 1, new Fib(0, 0, null));
+        for (int index = 2, i = 0, j = 1; j < size; index++) {
+            j = j + i;
+            i = j - i;
+            prev = new Fib(index, j, prev);
+        }
+        return new Pair<>(prev.get() == size, prev);
+    }
+
+    /**
+     * 二分查找,左右次数都为1
+     */
+    public static int binSearch2(OrderedVector vector, Integer e, int lo, int hi) {
+        while (1 < hi - lo) {
+            int mi = (lo + hi) >> 1;
+            if (e < vector.elementData(mi)) {
+                hi = mi;
+            } else {
+                lo = mi;
+            }
+        }
+        return vector.elementData(lo).equals(e) ? lo : -1;
+    }
+
+    /**
+     * 二分查找,左右次数都为1,且返回的是不大于e的最后一个元素
+     */
+    public static int binSearch3(OrderedVector vector, Integer e, int lo, int hi) {
         while (lo < hi) {
             int mi = (lo + hi) >> 1;
+            if (e < vector.elementData(mi)) {
+                hi = mi;
+            } else {
+                lo = mi + 1;
+            }
+        }
+        return lo - 1;
+    }
+
+    public static int interpolationSearch(OrderedVector vector, Integer e, int lo, int hi) {
+        hi--;
+        while (lo < hi) {
+            int mi = lo + (hi - lo) * (e - vector.elementData(lo)) / (vector.elementData(hi) - vector.elementData(lo));
+            System.out.println("mi = " + mi);
             if (e < vector.elementData(mi)) {
                 hi = mi;
             } else if (vector.elementData(mi) < e) {
@@ -85,12 +137,13 @@ public class OrderedVector extends Vector<Integer> {
         System.out.println("uniquify = " + uniquify);
 
         int e = 3;
-        int index = OrderedVector.binSearch(orderedVector, e, 0, orderedVector.size);
+        int index = OrderedVector.binSearch3(orderedVector, e, 0, orderedVector.size);
         System.out.println(e + ":index = " + index);
 
         array = new Integer[]{2, 3, 5, 7, 11, 13, 17};
         orderedVector = new OrderedVector(array, 0, array.length);
-        e = 11;
+        System.out.println(orderedVector);
+        e = 15;
         index = OrderedVector.search(orderedVector, e, 0, orderedVector.size);
         System.out.println(e + ":index = " + index);
 
