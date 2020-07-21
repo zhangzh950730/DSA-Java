@@ -1,6 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter2_向量;
 
-import kotlin.Pair;
+import javafx.util.Pair;
 
 /**
  * @author zhangzhihao
@@ -26,10 +26,10 @@ public class OrderedVector extends Vector<Integer> {
 
     public static int search(OrderedVector vector, Integer e, int lo, int hi) {
         Pair<Boolean, Fib> fib = fib(hi - lo);
-        if (!fib.getFirst()) {
+        if (!fib.getKey()) {
             return binSearch3(vector, e, lo, hi);
         } else {
-            return fibSearch(vector, e, lo, hi, fib.getSecond());
+            return fibSearch(vector, e, lo, hi, fib.getValue());
         }
     }
 
@@ -111,6 +111,9 @@ public class OrderedVector extends Vector<Integer> {
         return lo - 1;
     }
 
+    /**
+     * 插值查找
+     */
     public static int interpolationSearch(OrderedVector vector, Integer e, int lo, int hi) {
         hi--;
         while (lo < hi) {
@@ -145,6 +148,13 @@ public class OrderedVector extends Vector<Integer> {
         System.out.println(orderedVector);
         e = 15;
         index = OrderedVector.search(orderedVector, e, 0, orderedVector.size);
+        System.out.println(e + ":index = " + index);
+
+        array = new Integer[]{5, 10, 12, 14, 26, 31, 38, 39, 42, 46, 49, 51, 54, 59, 72, 79, 82, 86, 92};
+        orderedVector = new OrderedVector(array, 0, array.length);
+        System.out.println(orderedVector);
+        e = 50;
+        index = interpolationSearch(orderedVector, e, 0, array.length);
         System.out.println(e + ":index = " + index);
 
     }
