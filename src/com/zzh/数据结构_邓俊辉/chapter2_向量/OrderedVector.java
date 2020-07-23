@@ -8,7 +8,6 @@ import kotlin.Pair;
  */
 public class OrderedVector extends Vector<Integer> {
 
-
     public OrderedVector(Integer[] array) {
         this(array, 0, array.length);
     }
@@ -167,6 +166,62 @@ public class OrderedVector extends Vector<Integer> {
         }
     }
 
+    /**
+     * 归并排序
+     */
+    public void mergeSort(int lo, int hi) {
+        if (hi - lo < 2) {
+            return;
+        }
+        int mi = (lo + hi) >> 1;
+        mergeSort(lo, mi);
+        mergeSort(mi, hi);
+//        merge1(lo, mi, hi);
+        merge2(lo, mi, hi);
+    }
+
+    private void merge1(int lo, int mi, int hi) {
+        System.out.print("OrderedVector.merge1");
+        System.out.print(" lo = " + lo);
+        System.out.print(" mi = " + mi);
+        System.out.print(" hi = " + hi);
+        System.out.println();
+
+        int lb = mi - lo;
+        int lc = hi;
+        Integer[] temporary = new Integer[lb];
+        for (int i = 0; i < lb; i++) {
+            temporary[i] = elementData(i + lo);
+        }
+        for (int i = lo, j = 0, k = mi; j < lb || k < lc; ) {
+            if (j < lb && (lc <= k || temporary[j] < elementData(k))) {
+                elements[i++] = temporary[j++];
+            }
+            if (k < lc && (lb <= j || elementData(k) < temporary[j])) {
+                elements[i++] = elements[k++];
+            }
+        }
+        ArrayUtils.print(elements);
+    }
+
+    private void merge2(int lo, int mi, int hi) {
+        System.out.print("OrderedVector.merge1");
+        System.out.print(" lo = " + lo);
+        System.out.print(" mi = " + mi);
+        System.out.print(" hi = " + hi);
+        System.out.println();
+
+        int lb = mi - lo;
+        Integer[] temporary = new Integer[lb];
+        for (int i = 0; i < lb; i++) {
+            temporary[i] = elementData(i + lo);
+        }
+        for (int i = lo, j = 0, k = mi; j < lb; ) {
+            elements[i++] = (hi <= k || temporary[j] <= elementData(k)) ? temporary[j++] : elements[k++];
+        }
+        ArrayUtils.print(elements);
+    }
+
     public static void main(String[] args) {
         Integer[] array = {3, 3, 3, 3, 5, 5, 5, 5, 5, 8, 8, 8, 13, 13, 13, 13};
         OrderedVector orderedVector = new OrderedVector(array, 0, array.length);
@@ -203,5 +258,11 @@ public class OrderedVector extends Vector<Integer> {
         orderedVector = new OrderedVector(array);
         orderedVector.bubbleSort2(0, array.length);
         System.out.println("bubbleSort2 = " + orderedVector);
+
+        array = new Integer[]{9, 3, 0, 1, 2, 4, 5, 6, 7, 8};
+        orderedVector = new OrderedVector(array);
+        System.out.println("mergeSortBefor = " + orderedVector);
+        orderedVector.mergeSort(0, array.length);
+        System.out.println("mergeSortAfter = " + orderedVector);
     }
 }
