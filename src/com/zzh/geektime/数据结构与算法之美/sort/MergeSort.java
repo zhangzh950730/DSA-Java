@@ -10,11 +10,11 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-    public static void mergeSort(int[] nums) {
+    public static void mergeSort(Integer[] nums) {
         mergeSort0(nums, 0, nums.length - 1);
     }
 
-    private static void mergeSort0(int[] nums, int min, int max) {
+    private static void mergeSort0(Integer[] nums, int min, int max) {
         if (min >= max) {
             return;
         }
@@ -24,7 +24,7 @@ public class MergeSort {
         merge(nums, min, mid, max);
     }
 
-    private static void merge(int[] nums, int min, int mid, int max) {
+    private static void merge(Integer[] nums, int min, int mid, int max) {
         int[] left = new int[mid - min + 2];
         int[] right = new int[max - mid + 1];
 
@@ -49,7 +49,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {11, 8, 3, 9, 7, 1, 2, 5};
+        Integer[] nums = {11, 8, 3, 9, 7, 1, 2, 5};
         mergeSort(nums);
         ArrayUtils.print(nums);
     }

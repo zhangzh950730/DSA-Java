@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class ArraySortDemo {
     public static void main(String[] args) {
-        int[] nums = new int[]{4, 5, 2, 7, 8, 0};
+        Integer[] nums = new Integer[]{4, 5, 2, 7, 8, 0};
         Arrays.sort(nums);
         ArrayUtils.print(nums);
     }

@@ -10,11 +10,11 @@ import java.lang.reflect.Array;
  */
 public class QuickSort {
 
-    public static void quickSort(int[] nums) {
+    public static void quickSort(Integer[] nums) {
         quickSort(nums, 0, nums.length - 1);
     }
 
-    private static void quickSort(int[] nums, int min, int max) {
+    private static void quickSort(Integer[] nums, int min, int max) {
         if (min >= max) {
             return;
         }
@@ -23,7 +23,7 @@ public class QuickSort {
         quickSort(nums, pivotIndex + 1, max);
     }
 
-    private static int partition(int[] nums, int min, int max) {
+    private static int partition(Integer[] nums, int min, int max) {
         int pivot = nums[max];
         int i = min;
         for (int j = min; j < max; j++) {
@@ -39,7 +39,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {11, 8, 3, 9, 7, 1, 2, 5};
+        Integer[] nums = {11, 8, 3, 9, 7, 1, 2, 5};
         quickSort(nums);
         ArrayUtils.print(nums);
     }

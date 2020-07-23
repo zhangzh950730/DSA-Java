@@ -1,11 +1,17 @@
 package com.zzh.数据结构_邓俊辉.chapter2_向量;
 
-import javafx.util.Pair;
+import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+import kotlin.Pair;
 
 /**
  * @author zhangzhihao
  */
 public class OrderedVector extends Vector<Integer> {
+
+
+    public OrderedVector(Integer[] array) {
+        this(array, 0, array.length);
+    }
 
     public OrderedVector(Integer[] array, int lo, int hi) {
         super(array, lo, hi);
@@ -24,24 +30,24 @@ public class OrderedVector extends Vector<Integer> {
         return old - size;
     }
 
-    public static int search(OrderedVector vector, Integer e, int lo, int hi) {
+    public int search(Integer e, int lo, int hi) {
         Pair<Boolean, Fib> fib = fib(hi - lo);
-        if (!fib.getKey()) {
-            return binSearch3(vector, e, lo, hi);
+        if (!fib.getFirst()) {
+            return binSearch3(e, lo, hi);
         } else {
-            return fibSearch(vector, e, lo, hi, fib.getValue());
+            return fibSearch(e, lo, hi, fib.getSecond());
         }
     }
 
     /**
      * 二分查找,左边一次,右边两次
      */
-    public static int binSearch1(OrderedVector vector, Integer e, int lo, int hi) {
+    public int binSearch1(Integer e, int lo, int hi) {
         while (lo < hi) {
             int mi = (lo + hi) >> 1;
-            if (e < vector.elementData(mi)) {
+            if (e < elementData(mi)) {
                 hi = mi;
-            } else if (vector.elementData(mi) < e) {
+            } else if (elementData(mi) < e) {
                 lo = mi + 1;
             } else {
                 return mi;
@@ -53,15 +59,15 @@ public class OrderedVector extends Vector<Integer> {
     /**
      * 斐波那契查找
      */
-    public static int fibSearch(OrderedVector vector, Integer e, int lo, int hi, Fib fib) {
+    public int fibSearch(Integer e, int lo, int hi, Fib fib) {
         while (lo < hi) {
             while (hi - lo < fib.get()) {
                 fib = fib.prev;
             }
             int mi = lo + fib.get() - 1;
-            if (e < vector.elementData(mi)) {
+            if (e < elementData(mi)) {
                 hi = mi;
-            } else if (vector.elementData(mi) < e) {
+            } else if (elementData(mi) < e) {
                 lo = mi + 1;
             } else {
                 return mi;
@@ -70,7 +76,7 @@ public class OrderedVector extends Vector<Integer> {
         return -1;
     }
 
-    private static Pair<Boolean, Fib> fib(int size) {
+    private Pair<Boolean, Fib> fib(int size) {
         size++;
         Fib prev = new Fib(1, 1, new Fib(0, 0, null));
         for (int index = 2, i = 0, j = 1; j < size; index++) {
@@ -84,25 +90,25 @@ public class OrderedVector extends Vector<Integer> {
     /**
      * 二分查找,左右次数都为1
      */
-    public static int binSearch2(OrderedVector vector, Integer e, int lo, int hi) {
+    public int binSearch2(Integer e, int lo, int hi) {
         while (1 < hi - lo) {
             int mi = (lo + hi) >> 1;
-            if (e < vector.elementData(mi)) {
+            if (e < elementData(mi)) {
                 hi = mi;
             } else {
                 lo = mi;
             }
         }
-        return vector.elementData(lo).equals(e) ? lo : -1;
+        return elements[lo] == (e) ? lo : -1;
     }
 
     /**
      * 二分查找,左右次数都为1,且返回的是不大于e的最后一个元素
      */
-    public static int binSearch3(OrderedVector vector, Integer e, int lo, int hi) {
+    public int binSearch3(Integer e, int lo, int hi) {
         while (lo < hi) {
             int mi = (lo + hi) >> 1;
-            if (e < vector.elementData(mi)) {
+            if (e < elementData(mi)) {
                 hi = mi;
             } else {
                 lo = mi + 1;
@@ -114,20 +120,51 @@ public class OrderedVector extends Vector<Integer> {
     /**
      * 插值查找
      */
-    public static int interpolationSearch(OrderedVector vector, Integer e, int lo, int hi) {
+    public int interpolationSearch(Integer e, int lo, int hi) {
         hi--;
         while (lo < hi) {
-            int mi = lo + (hi - lo) * (e - vector.elementData(lo)) / (vector.elementData(hi) - vector.elementData(lo));
-            System.out.println("mi = " + mi);
-            if (e < vector.elementData(mi)) {
+            int mi = lo + (hi - lo) * (e - elementData(lo)) / (elementData(hi) - elementData(lo));
+            if (e < elementData(mi)) {
                 hi = mi;
-            } else if (vector.elementData(mi) < e) {
+            } else if (elementData(mi) < e) {
                 lo = mi + 1;
             } else {
                 return mi;
             }
         }
         return -1;
+    }
+
+    /**
+     * 提前终止版
+     */
+    public void bubbleSort1(int lo, int hi) {
+        for (boolean sorted = false; sorted = !sorted; hi--) {
+            for (int i = lo; i < hi - 1; i++) {
+                System.out.print(" i = " + i);
+                if (elementData(i + 1) < elementData(i)) {
+                    ArrayUtils.swap(elements, i + 1, i);
+                    sorted = false;
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 跳跃版
+     */
+    public void bubbleSort2(int lo, int hi) {
+        for (int last = --hi; lo < hi; hi = last) {
+            for (int i = last = lo; i < hi; i++) {
+                System.out.print(" i = " + i);
+                if (elementData(i + 1) < elementData(i)) {
+                    ArrayUtils.swap(elements, i + 1, i);
+                    last = i;
+                }
+            }
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) {
@@ -140,22 +177,31 @@ public class OrderedVector extends Vector<Integer> {
         System.out.println("uniquify = " + uniquify);
 
         int e = 3;
-        int index = OrderedVector.binSearch3(orderedVector, e, 0, orderedVector.size);
+        int index = orderedVector.binSearch3(e, 0, orderedVector.size);
         System.out.println(e + ":index = " + index);
 
         array = new Integer[]{2, 3, 5, 7, 11, 13, 17};
         orderedVector = new OrderedVector(array, 0, array.length);
         System.out.println(orderedVector);
         e = 15;
-        index = OrderedVector.search(orderedVector, e, 0, orderedVector.size);
+        index = orderedVector.search(e, 0, orderedVector.size);
         System.out.println(e + ":index = " + index);
 
         array = new Integer[]{5, 10, 12, 14, 26, 31, 38, 39, 42, 46, 49, 51, 54, 59, 72, 79, 82, 86, 92};
         orderedVector = new OrderedVector(array, 0, array.length);
         System.out.println(orderedVector);
         e = 50;
-        index = interpolationSearch(orderedVector, e, 0, array.length);
+        index = orderedVector.interpolationSearch(e, 0, array.length);
         System.out.println(e + ":index = " + index);
 
+        array = new Integer[]{9, 3, 0, 1, 2, 4, 5, 6, 7, 8};
+        orderedVector = new OrderedVector(array, 0, array.length);
+        orderedVector.bubbleSort1(0, array.length);
+        System.out.println("bubbleSort1 = " + orderedVector);
+
+        array = new Integer[]{9, 3, 0, 1, 2, 4, 5, 6, 7, 8};
+        orderedVector = new OrderedVector(array);
+        orderedVector.bubbleSort2(0, array.length);
+        System.out.println("bubbleSort2 = " + orderedVector);
     }
 }

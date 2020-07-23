@@ -10,7 +10,7 @@ import javax.xml.stream.FactoryConfigurationError;
  */
 public class BubbleSort {
 
-    public static void bubbleSort(int[] nums) {
+    public static void bubbleSort(Integer[] nums) {
         if (nums.length <= 1) {
             return;
         }
@@ -30,7 +30,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3, 5, 4, 1, 2, 6};
+        Integer[] nums = {3, 5, 4, 1, 2, 6};
         BubbleSort.bubbleSort(nums);
         ArrayUtils.print(nums);
     }

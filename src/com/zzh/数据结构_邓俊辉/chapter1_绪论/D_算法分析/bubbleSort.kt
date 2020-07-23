@@ -3,12 +3,12 @@ package com.zzh.数据结构_邓俊辉.chapter1_绪论.D_算法分析
 import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils
 
 fun main() {
-    val array = intArrayOf(4, 5, 2, 7, 8, 1, 3, 6)
+    val array = arrayOf(4, 5, 2, 7, 8, 1, 3, 6)
     bubbleSort(array)
     ArrayUtils.print(array)
 }
 
-private fun bubbleSort(array: IntArray) {
+private fun bubbleSort(array: Array<Int>) {
     var n = array.size
     var swapped = false
     while (true) {

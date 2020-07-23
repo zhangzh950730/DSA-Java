@@ -11,21 +11,21 @@ import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
 public class Reverse {
 
     public static void main(String[] args) {
-        int[] array = {7, 6, 5, 4, 3, 2, 1};
+        Integer[] array = {7, 6, 5, 4, 3, 2, 1};
         reverse1(array, 0, array.length - 1);
         ArrayUtils.print(array);
-        array = new int[]{8, 7, 6, 5, 4, 3, 2, 1};
+        array = new Integer[]{8, 7, 6, 5, 4, 3, 2, 1};
         reverse2(array, 0, array.length - 1);
         ArrayUtils.print(array);
     }
 
-    private static void reverse2(int[] array, int lo, int hi) {
+    private static void reverse2(Integer[] array, int lo, int hi) {
         while (lo < hi) {
             ArrayUtils.swap(array, lo++, hi--);
         }
     }
 
-    private static void reverse1(int[] array, int lo, int hi) {
+    private static void reverse1(Integer[] array, int lo, int hi) {
         if (lo < hi) {
             ArrayUtils.swap(array, lo++, hi--);
             reverse1(array, lo, hi);

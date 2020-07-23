@@ -8,7 +8,7 @@ import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
  */
 public class CountingSort {
 
-    public static void countingSort(int[] nums) {
+    public static void countingSort(Integer[] nums) {
         // 计算数组元素的区间
         int max = Integer.MIN_VALUE;
         for (int num : nums) {
@@ -40,7 +40,7 @@ public class CountingSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 5, 3, 0, 2, 3, 0, 3};
+        Integer[] nums = new Integer[]{2, 5, 3, 0, 2, 3, 0, 3};
         countingSort(nums);
         ArrayUtils.print(nums);
     }

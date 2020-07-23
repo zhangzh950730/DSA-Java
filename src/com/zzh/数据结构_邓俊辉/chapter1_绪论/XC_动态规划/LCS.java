@@ -18,7 +18,7 @@ public class LCS {
     }
 
     private static int lcs(String s1, String s2) {
-        int[][] table = new int[s2.length() + 1][s1.length() + 1];
+        Integer[][] table = new Integer[s2.length() + 1][s1.length() + 1];
         for (int i = 0; i < s1.length(); i++) {
             for (int j = 0; j < s2.length(); j++) {
                 if (s1.charAt(i) == s2.charAt(j)) {
@@ -28,7 +28,7 @@ public class LCS {
                 }
             }
         }
-        for (int[] array : table) {
+        for (Integer[] array : table) {
             ArrayUtils.print(array);
         }
         return table[s2.length()][s1.length()];

@@ -8,7 +8,7 @@ import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
  */
 public class SelectionSort {
 
-    public static void selectionSort(int[] nums) {
+    public static void selectionSort(Integer[] nums) {
         for (int i = 0; i < nums.length; i++) {
             int min = i;
             for (int j = i + 1; j < nums.length; j++) {
@@ -22,7 +22,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {4, 5, 6, 3, 2, 1};
+        Integer[] nums = {4, 5, 6, 3, 2, 1};
         selectionSort(nums);
         ArrayUtils.print(nums);
     }
