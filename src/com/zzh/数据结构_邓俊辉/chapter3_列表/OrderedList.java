@@ -4,7 +4,7 @@ package com.zzh.数据结构_邓俊辉.chapter3_列表;
  * @author <a href="zhangzh950730@gmail.com" >ZhangZhiHao</a>
  * @since 2020/7/23 22:09
  */
-public class SortedList extends List<Integer> {
+public class OrderedList extends List<Integer> {
 
     /**
      * 有序列表 唯一化
@@ -35,5 +35,27 @@ public class SortedList extends List<Integer> {
             n--;
         } while (-1 < n && e < p.data);
         return p;
+    }
+
+    public void selectionSort(ListNode<Integer> p, int n) {
+        ListNode<Integer> head = p.pred;
+        ListNode<Integer> tail = p;
+        for (int i = 0; i < n; i++) {
+            tail = tail.succ;
+        }
+        while (1 < n--) {
+            insertBefore(tail, remove(selectMax(head.succ, n)));
+            tail = tail.pred;
+        }
+    }
+
+    private ListNode<Integer> selectMax(ListNode<Integer> p, int n) {
+        ListNode<Integer> max = p;
+        for (ListNode<Integer> cur = p; 1 < n; n--) {
+            if ((cur = cur.succ).data >= max.data) {
+                max = cur;
+            }
+        }
+        return max;
     }
 }
