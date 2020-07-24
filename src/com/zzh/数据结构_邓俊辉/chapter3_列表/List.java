@@ -46,6 +46,11 @@ public class List<T> {
         return p.insertAsPred(e);
     }
 
+    public ListNode<T> insertAfter(ListNode<T> p, T e) {
+        _size++;
+        return p.insertAsSucc(e);
+    }
+
     public void copyNodes(ListNode<T> p, int n) {
         init();
         while (0 < n--) {

@@ -58,4 +58,12 @@ public class OrderedList extends List<Integer> {
         }
         return max;
     }
+
+    public void insertionSort(ListNode<Integer> p, int n) {
+        for (int i = 0; i < n; i++) {
+            insertBefore(search(p.data, i, p), p.data);
+            p = p.succ;
+            remove(p.pred);
+        }
+    }
 }

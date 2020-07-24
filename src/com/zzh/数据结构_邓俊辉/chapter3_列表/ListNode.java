@@ -34,7 +34,10 @@ public class ListNode<T> {
     }
 
     ListNode<T> insertAsSucc(T e) {
-        return null;
+        ListNode<T> x = new ListNode<>(e, this, succ);
+        succ.pred = x;
+        succ = x;
+        return x;
     }
 
 }
