@@ -104,7 +104,7 @@ public class Vector<T> implements Comparator<T> {
     }
 
     protected void expand() {
-        if (elements.length < size) {
+        if (elements.length < size || size == 0) {
             return;
         }
         Object[] old = elements;
