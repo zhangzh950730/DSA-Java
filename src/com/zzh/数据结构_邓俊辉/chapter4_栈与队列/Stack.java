@@ -46,6 +46,20 @@ public class Stack<T> extends Vector<T> {
         return result;
     }
 
+    /**
+     * 打印十进制整数y的x进制表示
+     * @param y
+     * @param x
+     */
+    public static void convert1(int y, int x) {
+        char[] digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        if (x != 0) {
+            convert1(y, x / y);
+            System.out.print(digit[x % y]);
+        }
+
+    }
+
     public static boolean paren(Character[] characters, int lo, int hi) {
         Stack<Character> stack = new Stack<>();
         for (int i = lo; i < hi; i++) {
@@ -86,6 +100,7 @@ public class Stack<T> extends Vector<T> {
         return character.equals('(') || character.equals('[') || character.equals('{');
     }
 
+
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -104,5 +119,7 @@ public class Stack<T> extends Vector<T> {
         Character[] characters = {'[', '{', '}', '(', ')', '(', '9', ')', ']'};
         boolean paren = Stack.paren(characters, 0, characters.length);
         System.out.println("paren = " + paren);
+
+        Stack.convert1(2, 25);
     }
 }
