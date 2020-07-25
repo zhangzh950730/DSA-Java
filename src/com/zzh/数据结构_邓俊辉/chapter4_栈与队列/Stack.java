@@ -46,6 +46,46 @@ public class Stack<T> extends Vector<T> {
         return result;
     }
 
+    public static boolean paren(Character[] characters, int lo, int hi) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = lo; i < hi; i++) {
+            Character character = characters[i];
+            if (isLeftParen(character)) {
+                stack.push(character);
+            } else if (isRightParen(character)) {
+                if (stack.elements.length > 0) {
+                    if (!isMatches(stack.pop(), character)) {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+        }
+        return stack.elements.length == 0;
+    }
+
+    private static boolean isMatches(Character left, Character right) {
+        switch (left) {
+            case '(':
+                return right.equals(')');
+            case '[':
+                return right.equals(']');
+            case '{':
+                return right.equals('}');
+            default:
+                return false;
+        }
+    }
+
+    private static boolean isRightParen(Character character) {
+        return character.equals(')') || character.equals(']') || character.equals('}');
+    }
+
+    private static boolean isLeftParen(Character character) {
+        return character.equals('(') || character.equals('[') || character.equals('{');
+    }
+
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -60,5 +100,9 @@ public class Stack<T> extends Vector<T> {
 
         Character[] convert = convert(175, 16);
         ArrayUtils.print(convert);
+
+        Character[] characters = {'[', '{', '}', '(', ')', '(', '9', ')', ']'};
+        boolean paren = Stack.paren(characters, 0, characters.length);
+        System.out.println("paren = " + paren);
     }
 }
