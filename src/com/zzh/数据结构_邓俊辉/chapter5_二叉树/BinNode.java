@@ -8,8 +8,8 @@ public class BinNode<T> {
     protected BinNode<T> lChild, rChild, parent;
     protected T data;
     protected int height;
-//    private Object npl;
-//    private BinNodeColor color;
+    private Object npl;
+    private BinNodeColor color;
 
     public BinNode(T data, BinNode<T> parent) {
         this.parent = parent;
