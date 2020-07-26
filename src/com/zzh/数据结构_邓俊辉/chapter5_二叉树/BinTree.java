@@ -109,8 +109,24 @@ public class BinTree<T> {
     /**
      * 左子树->根节点->右子树
      */
-    public void inOrder() {
+    public void inOrder(BinNode<T> x, Consumer<T> consumer) {
+        Stack<BinNode<T>> stack = new Stack<>();
+        while (true) {
+            goAlongLeftBranch(x, stack);
+            if (stack.empty()) {
+                break;
+            }
+            x = stack.pop();
+            consumer.accept(x.data);
+            x = x.rChild;
+        }
+    }
 
+    private void goAlongLeftBranch(BinNode<T> x, Stack<BinNode<T>> stack) {
+        while (x != null) {
+            stack.push(x);
+            x = x.lChild;
+        }
     }
 
     /**
