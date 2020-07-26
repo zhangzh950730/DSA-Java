@@ -1,5 +1,7 @@
 package com.zzh.数据结构_邓俊辉.chapter5_二叉树;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.function.Consumer;
 
@@ -134,5 +136,23 @@ public class BinTree<T> {
      */
     public void postOrder() {
 
+    }
+
+    /**
+     * 层次遍历
+     */
+    public void travLevel(Consumer<T> consumer) {
+        Queue<BinNode<T>> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            BinNode<T> x = queue.poll();
+            consumer.accept(x.data);
+            if (x.lChild != null) {
+                queue.offer(x.lChild);
+            }
+            if (x.rChild != null) {
+                queue.offer(x.rChild);
+            }
+        }
     }
 }
