@@ -18,15 +18,15 @@ public class Edge<E> {
     /**
      * 状态
      */
-    EStatus status;
+    EType type;
 
     public Edge(E data, int weight) {
         this.data = data;
         this.weight = weight;
-        status = EStatus.UNDETERMINED;
+        type = EType.UNDETERMINED;
     }
 
-    private enum EStatus {
+    public enum EType {
         UNDETERMINED, TREE, CROSS, FORWARD, BACKWARD
     }
 }
