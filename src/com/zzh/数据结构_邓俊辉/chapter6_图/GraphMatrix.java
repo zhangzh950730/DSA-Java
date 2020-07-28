@@ -1,5 +1,7 @@
 package com.zzh.数据结构_邓俊辉.chapter6_图;
 
+import kotlin.reflect.jvm.internal.impl.utils.DFS;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -184,7 +186,26 @@ public class GraphMatrix<V, E> extends Graph<V, E> {
         }
     }
 
-    private Edge.EType status(int v, int u) {
-        return null;
+    @Override
+    void DFS(int v, int clock) {
+        vertices.get(v).dTime = ++clock;
+        vertices.get(v).status = Vertex.VStatus.DISCOVERED;
+        for (int u = firstNeighbor(v); -1 < u; u = nextNeighbor(v, u)) {
+            switch (status(u)) {
+                case UNDISCOVERED:
+                    edges.get(v).get(u).type = Edge.EType.TREE;
+                    vertices.get(u).parent = v;
+                    DFS(u, clock);
+                    break;
+                case DISCOVERED:
+                    edges.get(v).get(u).type = Edge.EType.BACKWARD;
+                    break;
+                default:
+                    edges.get(v).get(u).type = dTime(v) < dTime(u) ? Edge.EType.FORWARD : Edge.EType.CROSS;
+                    break;
+            }
+        }
+        vertices.get(v).status = Vertex.VStatus.VISITED;
+        vertices.get(v).fTime = ++clock;
     }
 }

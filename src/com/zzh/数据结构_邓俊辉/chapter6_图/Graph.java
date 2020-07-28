@@ -50,4 +50,6 @@ public abstract class Graph<V, E> {
     // 算法
 
     abstract void BFS(int v, int clock);
+
+    abstract void DFS(int v, int clock);
 }
