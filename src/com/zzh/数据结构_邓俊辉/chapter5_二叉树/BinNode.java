@@ -5,11 +5,11 @@ package com.zzh.数据结构_邓俊辉.chapter5_二叉树;
  * @date 2020/7/26 10:03
  */
 public class BinNode<T> {
-    protected BinNode<T> lChild, rChild, parent;
-    protected T data;
-    protected int height;
-    private Object npl;
-    private BinNodeColor color;
+    public BinNode<T> lChild, rChild, parent;
+    public T data;
+    public int height;
+    public Object npl;
+    public BinNodeColor color;
 
     public BinNode(T data, BinNode<T> parent) {
         this.parent = parent;

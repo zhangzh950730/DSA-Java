@@ -9,9 +9,9 @@ import java.util.function.Consumer;
  * @author zhangzhihao
  * @date 2020/7/26 10:16
  */
-public class BinTree<T> {
+public abstract class BinTree<T> {
     protected int size;
-    protected BinNode<T> root;
+    protected BinNode<T> _root;
 
     /**
      * 更新节点高度
@@ -42,11 +42,11 @@ public class BinTree<T> {
     }
 
     public boolean empty() {
-        return root != null;
+        return _root != null;
     }
 
     public BinNode<T> root() {
-        return root;
+        return _root;
     }
 
     private int stature(BinNode<T> p) {
@@ -143,7 +143,7 @@ public class BinTree<T> {
      */
     public void travLevel(Consumer<T> consumer) {
         Queue<BinNode<T>> queue = new LinkedList<>();
-        queue.offer(root);
+        queue.offer(_root);
         while (!queue.isEmpty()) {
             BinNode<T> x = queue.poll();
             consumer.accept(x.data);
