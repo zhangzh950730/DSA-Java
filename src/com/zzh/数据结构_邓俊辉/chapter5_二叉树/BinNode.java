@@ -34,4 +34,32 @@ public class BinNode<T> {
         }
         return size;
     }
+
+    public BinNode<T> succ() {
+        BinNode<T> s = this;
+        if (rChild != null) {
+            s = rChild;
+            while (s.hasLChild()) {
+                s = s.lChild;
+            }
+        } else {
+            while (s.isRChild()) {
+                s = s.parent;
+            }
+            s = s.parent;
+        }
+        return s;
+    }
+
+    private boolean isRChild() {
+        return parent.rChild == this;
+    }
+
+    public boolean hasRChild() {
+        return rChild != null;
+    }
+
+    public boolean hasLChild() {
+        return lChild != null;
+    }
 }

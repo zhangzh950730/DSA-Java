@@ -10,7 +10,7 @@ import java.util.function.Consumer;
  * @date 2020/7/26 10:16
  */
 public abstract class BinTree<T> {
-    protected int size;
+    protected int _size;
     protected BinNode<T> _root;
 
     /**
@@ -31,14 +31,14 @@ public abstract class BinTree<T> {
     }
 
     public BinNode<T> insertAsRC(BinNode<T> x, T e) {
-        size++;
+        _size++;
         x.insertAsRC(e);
         updateHeightAbove(x);
         return x.rChild;
     }
 
     public int size() {
-        return size;
+        return _size;
     }
 
     public boolean empty() {
