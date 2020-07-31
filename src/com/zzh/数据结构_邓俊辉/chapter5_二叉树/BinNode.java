@@ -16,7 +16,7 @@ public class BinNode<T> {
         this.data = data;
     }
 
-    public BinNode<T> insertAslC(T data) {
+    public BinNode<T> insertAsLC(T data) {
         return lChild = new BinNode<>(data, this);
     }
 
@@ -51,8 +51,12 @@ public class BinNode<T> {
         return s;
     }
 
-    private boolean isRChild() {
+    public boolean isRChild() {
         return parent.rChild == this;
+    }
+
+    public boolean isLChild() {
+        return parent.lChild == this;
     }
 
     public boolean hasRChild() {

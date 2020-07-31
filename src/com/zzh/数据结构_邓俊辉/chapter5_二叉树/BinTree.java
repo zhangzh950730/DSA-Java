@@ -9,9 +9,18 @@ import java.util.function.Consumer;
  * @author zhangzhihao
  * @date 2020/7/26 10:16
  */
-public abstract class BinTree<T> {
-    protected int _size;
-    protected BinNode<T> _root;
+public class BinTree<T> {
+    public int _size;
+    public BinNode<T> _root;
+
+    public BinTree() {
+
+    }
+
+    public BinTree(BinNode<T> root) {
+        _root = root;
+        _size++;
+    }
 
     /**
      * 更新节点高度
@@ -33,6 +42,13 @@ public abstract class BinTree<T> {
     public BinNode<T> insertAsRC(BinNode<T> x, T e) {
         _size++;
         x.insertAsRC(e);
+        updateHeightAbove(x);
+        return x.rChild;
+    }
+
+    public BinNode<T> insertAsLC(BinNode<T> x, T e) {
+        _size++;
+        x.insertAsLC(e);
         updateHeightAbove(x);
         return x.rChild;
     }
@@ -141,7 +157,7 @@ public abstract class BinTree<T> {
     /**
      * 层次遍历
      */
-    public void travLevel(Consumer<T> consumer) {
+    public void traversalLevel(Consumer<T> consumer) {
         Queue<BinNode<T>> queue = new LinkedList<>();
         queue.offer(_root);
         while (!queue.isEmpty()) {
