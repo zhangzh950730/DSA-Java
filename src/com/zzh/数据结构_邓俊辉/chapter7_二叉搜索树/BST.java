@@ -20,6 +20,7 @@ public class BST extends BinTree<Integer> {
     /**
      * @param v 根节点
      * @param e 查找的数据
+     *
      * @return 命中的接口, 不存在则为null
      */
     private BinNode<Integer> searchIn(BinNode<Integer> v, Integer e) {
@@ -86,6 +87,20 @@ public class BST extends BinTree<Integer> {
         Integer temp = x.data;
         x.data = w.data;
         w.data = temp;
+    }
+
+    /**
+     * 理想平衡条件
+     */
+    public boolean balanced(BinNode<Integer> x) {
+        return stature(x.lChild) == stature(x.rChild);
+    }
+
+    /**
+     * 平衡因子
+     */
+    public int balFac(BinNode<Integer> x) {
+        return stature(x.lChild) - stature(x.rChild);
     }
 
     @Override

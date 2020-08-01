@@ -4,7 +4,6 @@ import com.zzh.数据结构_邓俊辉.chapter5_二叉树.BinNode;
 
 /**
  * @author zhangzhihao
- * @date 2020/7/31 10:06
  */
 public class AVL extends BST {
 
@@ -14,7 +13,32 @@ public class AVL extends BST {
 
     @Override
     public BinNode<Integer> insert(Integer e) {
-        return null;
+        BinNode<Integer> x = search(e);
+        if (x == null) {
+            return x;
+        }
+        x = new BinNode<>(e, _hot);
+        _size++;
+
+        for (BinNode<Integer> g = _hot; ; g = g.parent) {
+            if (!avlBalanced(g)) {
+                rotateAt(tallerChild(tallerChild(g)));
+                break;
+            } else {
+                updateHeightAbove(g);
+            }
+        }
+        return x;
+    }
+
+    private BinNode<Integer> tallerChild(BinNode<Integer> x) {
+        return stature(x.lChild) > stature(x.rChild) ? x.lChild :
+                stature(x.lChild) < stature(x.rChild) ? x.rChild :
+                        IsLChild(x) ? x.lChild : x.rChild;
+    }
+
+    private boolean IsLChild(BinNode<Integer> x) {
+        return x.parent.lChild == x;
     }
 
     @Override
@@ -23,7 +47,7 @@ public class AVL extends BST {
     }
 
     public BinNode<Integer> connect34(BinNode<Integer> a, BinNode<Integer> b, BinNode<Integer> c,
-                                         BinNode<Integer> t0, BinNode<Integer> t1, BinNode<Integer> t2, BinNode<Integer> t3) {
+                                      BinNode<Integer> t0, BinNode<Integer> t1, BinNode<Integer> t2, BinNode<Integer> t3) {
         //TODO
         return null;
     }
@@ -32,4 +56,10 @@ public class AVL extends BST {
         //TODO
         return null;
     }
+
+    public boolean avlBalanced(BinNode<Integer> x) {
+        return -2 < balFac(x) && balFac(x) < 2;
+
+    }
+
 }

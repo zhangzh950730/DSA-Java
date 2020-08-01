@@ -65,7 +65,7 @@ public class BinTree<T> {
         return _root;
     }
 
-    private int stature(BinNode<T> p) {
+    public int stature(BinNode<T> p) {
         return p != null ? p.height : -1;
     }
 
