@@ -7,6 +7,10 @@ import com.zzh.数据结构_邓俊辉.chapter5_二叉树.BinNode;
  */
 public class AVLTree extends BST {
 
+    public AVLTree() {
+
+    }
+
     public AVLTree(BinNode<Integer> root) {
         super(root);
     }
@@ -14,15 +18,28 @@ public class AVLTree extends BST {
     @Override
     public BinNode<Integer> insert(Integer e) {
         BinNode<Integer> x = search(e);
-        if (x == null) {
+        if (x != null) {
             return x;
         }
-        x = new BinNode<>(e, _hot);
+        if (e < _hot.data) {
+            x = _hot.insertAsLC(e);
+        } else {
+            x = _hot.insertAsRC(e);
+        }
         _size++;
 
         for (BinNode<Integer> g = _hot; g != null; g = g.parent) {
             if (!avlBalanced(g)) {
-                rotateAt(tallerChild(tallerChild(g)));
+                BinNode<Integer> tempG = g;
+                g = rotateAt(tallerChild(tallerChild(g)));
+                if (isRoot(tempG)) {
+                    _root = g;
+                } else if (isLChild(g)) {
+                    tempG.parent.lChild = g;
+                } else {
+                    tempG.parent.rChild = g;
+                }
+
                 break;
             } else {
                 updateHeightAbove(g);

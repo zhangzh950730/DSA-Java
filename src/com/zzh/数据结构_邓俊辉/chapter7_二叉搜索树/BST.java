@@ -9,6 +9,10 @@ import com.zzh.数据结构_邓俊辉.chapter5_二叉树.BinTree;
 public class BST extends BinTree<Integer> {
     protected BinNode<Integer> _hot;
 
+    public BST() {
+
+    }
+
     public BST(BinNode<Integer> root) {
         super(root);
     }
@@ -20,7 +24,6 @@ public class BST extends BinTree<Integer> {
     /**
      * @param v 根节点
      * @param e 查找的数据
-     *
      * @return 命中的接口, 不存在则为null
      */
     private BinNode<Integer> searchIn(BinNode<Integer> v, Integer e) {
@@ -143,6 +146,10 @@ public class BST extends BinTree<Integer> {
         updateHeight(c);
         updateHeight(b);
         return b;
+    }
+
+    public boolean isRoot(BinNode<Integer> x) {
+        return root() == x;
     }
 
     @Override
