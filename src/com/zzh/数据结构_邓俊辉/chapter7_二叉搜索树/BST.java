@@ -56,7 +56,7 @@ public class BST extends BinTree<Integer> {
         return true;
     }
 
-    private BinNode<Integer> removeAt(BinNode<Integer> x) {
+    public BinNode<Integer> removeAt(BinNode<Integer> x) {
         BinNode<Integer> succ;
         if (!x.hasLChild()) {
             //左子树为空
@@ -101,6 +101,48 @@ public class BST extends BinTree<Integer> {
      */
     public int balFac(BinNode<Integer> x) {
         return stature(x.lChild) - stature(x.rChild);
+    }
+
+
+    public BinNode<Integer> tallerChild(BinNode<Integer> x) {
+        return stature(x.lChild) > stature(x.rChild) ? x.lChild :
+                stature(x.lChild) < stature(x.rChild) ? x.rChild :
+                        isLChild(x) ? x.lChild : x.rChild;
+    }
+
+    public boolean isLChild(BinNode<Integer> x) {
+        return x.parent.lChild == x;
+    }
+
+    public BinNode<Integer> connect34(BinNode<Integer> a, BinNode<Integer> b, BinNode<Integer> c,
+                                      BinNode<Integer> t0, BinNode<Integer> t1, BinNode<Integer> t2, BinNode<Integer> t3) {
+        a.lChild = t0;
+        if (t0 != null) {
+            t0.parent = a;
+        }
+        a.rChild = t1;
+        if (t1 != null) {
+            t1.parent = a;
+        }
+
+        c.lChild = t2;
+        if (t2 != null) {
+            t2.parent = c;
+        }
+        c.rChild = t3;
+        if (t3 != null) {
+            t3.parent = c;
+        }
+
+        b.lChild = a;
+        a.parent = b;
+        b.rChild = c;
+        c.parent = b;
+
+        updateHeight(a);
+        updateHeight(c);
+        updateHeight(b);
+        return b;
     }
 
     @Override
