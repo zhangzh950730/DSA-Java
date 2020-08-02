@@ -3,6 +3,7 @@ package com.zzh.数据结构_邓俊辉.chapter7_二叉搜索树;
 import com.zzh.数据结构_邓俊辉.chapter5_二叉树.BinNode;
 
 /**
+ * AVL树
  * @author zhangzhihao
  */
 public class AVLTree extends BST {
