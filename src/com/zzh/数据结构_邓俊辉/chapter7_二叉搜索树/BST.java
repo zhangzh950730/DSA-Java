@@ -152,6 +152,28 @@ public class BST extends BinTree<Integer> {
         return root() == x;
     }
 
+    public BinNode<Integer> rotateAt(BinNode<Integer> v) {
+        BinNode<Integer> p = v.parent;
+        BinNode<Integer> g = p.parent;
+        if (isLChild(p)) {
+            if (isLChild(v)) {
+                p.parent = g.parent;
+                return connect34(v, p, g, v.lChild, v.rChild, p.rChild, g.rChild);
+            } else {
+                v.parent = g.parent;
+                return connect34(p, v, g, p.lChild, v.lChild, v.rChild, g.rChild);
+            }
+        } else {
+            if (isLChild(v)) {
+                v.parent = g.parent;
+                return connect34(g, v, p, g.lChild, v.lChild, v.rChild, p.rChild);
+            } else {
+                p.parent = g.parent;
+                return connect34(g, p, v, g.lChild, p.lChild, v.lChild, v.rChild);
+            }
+        }
+    }
+
     @Override
     public String toString() {
         traversalLevel(integer -> {

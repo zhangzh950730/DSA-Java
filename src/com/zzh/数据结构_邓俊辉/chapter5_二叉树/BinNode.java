@@ -16,6 +16,13 @@ public class BinNode<T> {
         this.data = data;
     }
 
+    public BinNode(T data, BinNode<T> parent, int height, BinNodeColor color) {
+        this.data = data;
+        this.parent = parent;
+        this.height = height;
+        this.color = color;
+    }
+
     public BinNode<T> insertAsLC(T data) {
         return lChild = new BinNode<>(data, this);
     }
