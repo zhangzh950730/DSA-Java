@@ -62,7 +62,9 @@ public class PQ_ComplHeap extends OrderedVector implements PriorityQueue<Integer
      * Floyd建堆算法
      */
     protected void heapify(int n) {
-
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            percolateDown(n, i);
+        }
     }
 
     public PQ_ComplHeap(Integer[] array, int n) {
