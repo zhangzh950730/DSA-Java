@@ -3,6 +3,8 @@ package com.zzh.数据结构_邓俊辉.chapter11_串;
 import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
 import kotlin.Pair;
 
+import java.util.Arrays;
+
 /**
  * @author <a href="zhangzh950730@gmail.com" >ZhangZhiHao</a>
  * @since 2020/8/8 11:29
@@ -70,6 +72,15 @@ public class String {
             }
         }
         return N;
+    }
+
+    public static Integer[] buildBC(char[] P) {
+        Integer[] bc = new Integer[256];
+        Arrays.fill(bc, -1);
+        for (int i = 0; i < bc.length; i++) {
+            bc[P[i]] = i;
+        }
+        return bc;
     }
 
 }
