@@ -1,4 +1,4 @@
-package com.zzh.algs4.chapter1_基础.section1_基础编程模型
+package com.zzh.algs4.chapter1.section1_基础编程模型
 
 /**
  *  1.1.24 1.1.25

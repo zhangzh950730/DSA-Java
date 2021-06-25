@@ -14,7 +14,7 @@ import java.util.List;
 public class Hailstone {
 
     public static void main(String[] args) {
-        var hailstone = hailstone(42);
+        List<Integer> hailstone = hailstone(42);
         System.out.println(hailstone);
         hailstone = hailstone(7);
         System.out.println(hailstone);
@@ -22,7 +22,7 @@ public class Hailstone {
         System.out.println(hailstone);
         hailstone = hailstone(63434);
         System.out.println(hailstone);
-        var n = 1;
+        Integer n = 1;
         while (true) {
             hailstone = hailstone(n++);
             System.out.println(n + " : " + hailstone.size());

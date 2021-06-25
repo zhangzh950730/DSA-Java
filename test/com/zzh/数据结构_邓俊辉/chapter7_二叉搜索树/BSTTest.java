@@ -44,7 +44,7 @@ class BSTTest {
 
     @Test
     void search() {
-        var e = 28;
+        int e = 28;
         BinNode<Integer> search = bst.search(e);
         assertNull(search);
         assertEquals(bst._hot.data, 29);

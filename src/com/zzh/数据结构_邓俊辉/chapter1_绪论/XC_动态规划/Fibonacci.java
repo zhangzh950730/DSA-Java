@@ -6,15 +6,16 @@ import java.util.Arrays;
 
 /**
  * 斐波那契数列
+ *
  * @author <a href="zhangzh950730@gmail.com" >ZhangZhiHao</a>
  * @since 2020/7/18 14:54
  */
 public class Fibonacci {
 
     public static void main(String[] args) {
-        var n = 43;
+        int n = 43;
 
-        var start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         fibonacci1(n);
         System.out.println("fibonacci1 " + (System.currentTimeMillis() - start));
 
@@ -29,7 +30,7 @@ public class Fibonacci {
 
     private static void fibonacci3(int n) {
         for (int i = 0; i < n; i++) {
-            var fib = fibonacci3_0(i);
+            int fib = fibonacci3_0(i);
             System.out.println("fib" + i + " = " + fib);
         }
     }
@@ -78,7 +79,7 @@ public class Fibonacci {
     @Deprecated(message = "指数级算法")
     private static void fibonacci1(int n) {
         for (int i = 0; i < n; i++) {
-            var fib = fibonacci1_0(i);
+            int fib = fibonacci1_0(i);
             System.out.println("fib" + i + " = " + fib);
         }
     }
