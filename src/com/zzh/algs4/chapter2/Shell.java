@@ -1,7 +1,5 @@
 package com.zzh.algs4.chapter2;
 
-import java.rmi.dgc.Lease;
-
 import static com.zzh.algs4.chapter2.ComparableUtils.*;
 
 /**
@@ -16,7 +14,7 @@ public class Shell {
             h = 3 * h + 1;
         }
         while (h >= 1) {
-            for (int i = 0; i < N; i++) {
+            for (int i = h; i < N; i++) {
                 for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
                     exch(a, j, j - h);
                 }
