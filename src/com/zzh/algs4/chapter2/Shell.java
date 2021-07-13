@@ -26,6 +26,6 @@ public class Shell {
     public static void main(String[] args) {
         Comparable[] array = {80, 23, 19, 40, 85, 1, 18, 92, 71, 8, 94, 46, 12};
         sort(array);
-        print(array);
+        show(array);
     }
 }

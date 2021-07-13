@@ -19,10 +19,12 @@ public class ComparableUtils {
     }
 
     public static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i] + "");
+        StdOut.print("{");
+        StdOut.print(a[0]);
+        for (int i = 1; i < a.length; i++) {
+            StdOut.print(", " + a[i]);
         }
-        StdOut.println();
+        StdOut.println("}");
     }
 
     public static boolean isSorted(Comparable[] a) {
@@ -33,14 +35,4 @@ public class ComparableUtils {
         }
         return true;
     }
-
-    public static void print(Comparable[] array) {
-        System.out.print("{");
-        System.out.print(array[0]);
-        for (int i = 1; i < array.length; i++) {
-            System.out.print(", " + array[i]);
-        }
-        System.out.println("}");
-    }
-
 }
