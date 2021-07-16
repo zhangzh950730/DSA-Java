@@ -1,4 +1,4 @@
-package com.zzh.algs4.chapter2;
+package com.zzh.algs4.chapter2.section3;
 
 import com.zzh.algs4.std.StdRandom;
 

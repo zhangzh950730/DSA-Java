@@ -1,4 +1,4 @@
-package com.zzh.algs4.chapter2;
+package com.zzh.algs4.chapter2.section1;
 
 import static com.zzh.algs4.chapter2.ComparableUtils.*;
 

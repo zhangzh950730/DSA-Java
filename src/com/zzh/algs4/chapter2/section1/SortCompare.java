@@ -1,5 +1,7 @@
-package com.zzh.algs4.chapter2;
+package com.zzh.algs4.chapter2.section1;
 
+import com.zzh.algs4.chapter2.section1.Insertion;
+import com.zzh.algs4.chapter2.section1.Selection;
 import com.zzh.algs4.std.StdOut;
 import com.zzh.algs4.std.StdRandom;
 import com.zzh.algs4.std.Stopwatch;
