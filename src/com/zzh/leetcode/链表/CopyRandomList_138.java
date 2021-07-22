@@ -1,5 +1,8 @@
 package com.zzh.leetcode.链表;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author ZhangZhiHao
  * @date 2021/7/22 9:40
@@ -17,7 +20,11 @@ public class CopyRandomList_138 {
         }
     }
 
-    class Solution {
+    /**
+     * https://leetcode-cn.com/problems/copy-list-with-random-pointer/solution/liang-chong-shi-xian-tu-jie-138-fu-zhi-dai-sui-ji-/
+     * 解法1
+     */
+    class Solution1 {
         public Node copyRandomList(Node head) {
             if (head == null) {
                 return null;
@@ -53,6 +60,36 @@ public class CopyRandomList_138 {
                 p = p.next;
             }
             return dummy.next;
+        }
+    }
+
+    /**
+     * https://leetcode-cn.com/problems/copy-list-with-random-pointer/solution/liang-chong-shi-xian-tu-jie-138-fu-zhi-dai-sui-ji-/
+     * 解法2
+     */
+    class Solution {
+        public Node copyRandomList(Node head) {
+            if (head == null) return null;
+            Map<Node, Node> map = new HashMap<>();
+            Node p = head;
+            while (p != null) {
+                Node newNode = new Node(p.val);
+                map.put(p, newNode);
+                p = p.next;
+            }
+
+            p = head;
+            while (p != null) {
+                Node newNode = map.get(p);
+                if (p.next != null) {
+                    newNode.next = map.get(p.next);
+                }
+                if (p.random != null) {
+                    newNode.random = map.get(p.random);
+                }
+                p = p.next;
+            }
+            return map.get(head);
         }
     }
 }
