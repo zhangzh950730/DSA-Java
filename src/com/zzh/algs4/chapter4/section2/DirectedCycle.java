@@ -54,4 +54,14 @@ public class DirectedCycle {
         return cycle;
     }
 
+    public static void main(String[] args) {
+        Digraph digraph = new Digraph(6);
+        digraph.addEdge(0, 5);
+        digraph.addEdge(3, 5);
+        digraph.addEdge(4, 3);
+        digraph.addEdge(5, 4);
+        DirectedCycle directedCycle = new DirectedCycle(digraph);
+        System.out.println("directedCycle = " + directedCycle);
+    }
+
 }

@@ -7,7 +7,7 @@ import com.zzh.algs4.std.StdOut;
  * @author ZhangZhiHao
  * @date 2021/6/28 11:23
  */
-public abstract class UnionFind {
+public class UnionFind {
 
     /**
      * 分量id,以触点作为索引
@@ -48,12 +48,17 @@ public abstract class UnionFind {
     /**
      * p(0到N-1)所在的分量的标识符
      */
-    public abstract int find(int p);
+    public int find(int p) {
+        // TODO: 2021/7/28
+        return -1;
+    }
 
     /**
      * 在p和q之间添加一条连接
      */
-    public abstract void union(int p, int q);
+    public void union(int p, int q) {
+        // TODO: 2021/7/28  
+    }
 
 
 }
