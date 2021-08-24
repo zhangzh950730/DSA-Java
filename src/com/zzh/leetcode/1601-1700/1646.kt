@@ -1,4 +1,4 @@
-package com.zzh.leetcode
+package com.zzh.leetcode.`1601-1700`
 
 fun getMaximumGenerated(n: Int): Int {
     if (n == 0) {

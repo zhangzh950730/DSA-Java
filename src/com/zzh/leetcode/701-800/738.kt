@@ -1,4 +1,4 @@
-package com.zzh.leetcode
+package com.zzh.leetcode.`701-800`
 
 /**
  * @author zhangzhihao

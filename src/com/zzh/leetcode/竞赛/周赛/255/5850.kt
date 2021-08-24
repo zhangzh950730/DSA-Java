@@ -1,4 +1,4 @@
-package com.zzh.leetcode.competition.single_week.two_hundred_and_fifty_five
+package com.zzh.leetcode.竞赛.single_week.two_hundred_and_fifty_five
 
 fun findGCD(nums: IntArray): Int {
     var min = nums[0]

@@ -1,6 +1,4 @@
-package com.zzh.leetcode.competition.双周赛.五十九
-
-import kotlin.math.min
+package com.zzh.leetcode.竞赛.双周赛.`59`
 
 class Solution {
 

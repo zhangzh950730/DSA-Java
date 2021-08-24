@@ -1,4 +1,4 @@
-package com.zzh.leetcode
+package com.zzh.leetcode.`601-700`
 
 import java.util.*
 
