@@ -17,7 +17,7 @@ public class LCS {
         System.out.println("lcs = " + lcs);
     }
 
-    private static int lcs(String s1, String s2) {
+    public static int lcs(String s1, String s2) {
         Integer[][] table = new Integer[s2.length() + 1][s1.length() + 1];
         for (int i = 0; i < s1.length(); i++) {
             for (int j = 0; j < s2.length(); j++) {

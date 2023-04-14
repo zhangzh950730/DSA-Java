@@ -1,7 +1,5 @@
 package com.zzh.geektime.数据结构与算法之美.array;
 
-import java.util.Objects;
-
 /**
  * @author zhangzhihao
  */

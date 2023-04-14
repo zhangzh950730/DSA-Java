@@ -10,13 +10,7 @@ import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
  */
 public class BubbleSort {
 
-    public static void main(String[] args) {
-        Integer[] array = {4, 5, 2, 7, 8, 1, 3, 6};
-        bubbleSort(array);
-        ArrayUtils.print(array);
-    }
-
-    private static void bubbleSort(Integer[] array) {
+    public static void bubbleSort(Integer[] array) {
         int n = array.length;
         for (boolean sorted = false; sorted = !sorted; n--) {
             for (int i = 1; i < n; i++) {

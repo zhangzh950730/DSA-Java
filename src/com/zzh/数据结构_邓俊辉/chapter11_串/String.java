@@ -61,15 +61,25 @@ public class String {
     }
 
     public static Integer[] buildNext(char[] P) {
-        int m = P.length, j = 0;
-        Integer[] N = new Integer[m];
-        int t = N[0] = -1;
+        int m = P.length, j = 0; //"主"串指针
+        Integer[] N = new Integer[m]; //next表
+        int t = N[0] = -1; //模式串指针 (P[-1]通配符)
         while (j < m - 1) {
-            if (0 > t || P[j] == P[t]) {
+            System.out.println("一次循环开始===============");
+            System.out.println("t = " + t);
+            System.out.println("j = " + j);
+            if (0 > t || P[j] == P[t]) { //匹配
+                System.out.println("匹配");
                 N[++j] = ++t;
-            } else {
+                System.out.println("t自增 = " + t);
+                System.out.println("j自增 = " + j);
+                ArrayUtils.print(N);
+            } else { //失配
+                System.out.println("失配");
                 t = N[t];
+                System.out.println("t = N[t] = " + t);
             }
+            System.out.println("一次循环结束===============");
         }
         return N;
     }
