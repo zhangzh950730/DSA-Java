@@ -7,7 +7,7 @@ import java.util.Map;
  * @author ZhangZhiHao
  * @date 2021/7/22 9:40
  */
-public class CopyRandomList_138 {
+public class _138_CopyRandomList {
     class Node {
         int val;
         Node next;

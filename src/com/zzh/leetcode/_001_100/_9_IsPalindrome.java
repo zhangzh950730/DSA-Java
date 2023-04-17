@@ -4,7 +4,7 @@ package com.zzh.leetcode;
  * @author zhangzhihao
  * @date 2020/6/10 12:38
  */
-public class IsPalindrome_9 {
+public class _9_IsPalindrome {
     public static void main(String[] args) {
         boolean palindrome = Solution.isPalindrome(12321);
         System.out.println(palindrome);

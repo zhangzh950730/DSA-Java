@@ -6,7 +6,7 @@ package com.zzh.leetcode;
  * @author zhangzhihao
  * @date 2020/6/2 11:29
  */
-public class ReverseList_206 {
+public class _206_ReverseList {
     /**
      * 迭代,哨兵节点
      */

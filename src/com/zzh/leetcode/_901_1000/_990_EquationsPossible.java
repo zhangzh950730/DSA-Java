@@ -4,10 +4,10 @@ package com.zzh.leetcode;
  * @author zhangzhihao
  * @date 2020/6/8 12:33
  */
-public class EquationsPossible_990 {
+public class _990_EquationsPossible {
 
     public static void main(String[] args) {
-        EquationsPossible_990 equationsPossible_990 = new EquationsPossible_990();
+        _990_EquationsPossible equationsPossible_990 = new _990_EquationsPossible();
         equationsPossible_990.equationsPossible(new String[]{"a==b", "b==a"});
         equationsPossible_990.equationsPossible(new String[]{"a==b", "b!=a"});
         equationsPossible_990.equationsPossible(new String[]{"a==b", "b==c"});

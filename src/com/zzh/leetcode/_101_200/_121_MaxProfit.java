@@ -10,7 +10,7 @@ import java.util.Map;
  * @author zhangzhihao
  * @date 2020/6/2 9:00
  */
-public class MaxProfit_121 {
+public class _121_MaxProfit {
     /**
      * 一次遍历
      */

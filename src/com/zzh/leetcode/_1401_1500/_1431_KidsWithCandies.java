@@ -8,7 +8,7 @@ import java.util.List;
  * @author zhangzhihao
  * @date 2020/6/1 16:18
  */
-public class KidsWithCandies_1431 {
+public class _1431_KidsWithCandies {
     /**
      * 枚举
      * 首先记录持有糖果最多的孩子,然后遍历所有孩子并分配糖果和判断

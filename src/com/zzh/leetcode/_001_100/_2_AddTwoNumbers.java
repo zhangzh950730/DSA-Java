@@ -6,7 +6,7 @@ package com.zzh.leetcode;
  * @author zhangzhihao
  * @date 2020/6/1 16:58
  */
-public class AddTwoNumbers_2 {
+public class _2_AddTwoNumbers {
     /**
      *  链表 进位
      */

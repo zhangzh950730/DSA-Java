@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author zhangzhihao
  * @date 2020/6/2 9:46
  */
-public class MajorityElement_169 {
+public class _169_MajorityElement {
 
     /**
      * 排序,众数必然是中位数

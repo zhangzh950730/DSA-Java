@@ -8,7 +8,7 @@ import java.util.Map;
  * @author zhangzhihao
  * @date 2020/6/1 16:42
  */
-public class TwoSum_1 {
+public class _1_TwoSum {
     /**
      *  一遍哈希表
      */

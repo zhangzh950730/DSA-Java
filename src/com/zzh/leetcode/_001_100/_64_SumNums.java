@@ -8,7 +8,7 @@ import com.zzh.Assert;
  * @author zhangzhihao
  * @date 2020/6/2 10:29
  */
-public class SumNums_64 {
+public class _64_SumNums {
 
     /**
      * 递归,通过逻辑与短路
