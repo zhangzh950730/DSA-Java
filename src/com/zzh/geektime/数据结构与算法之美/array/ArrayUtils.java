@@ -20,6 +20,15 @@ public class ArrayUtils {
         System.out.println("}");
     }
 
+    public static void print(int[] array) {
+        System.out.print("{");
+        System.out.print(array[0]);
+        for (int i = 1; i < array.length; i++) {
+            System.out.print(", " + array[i]);
+        }
+        System.out.println("}");
+    }
+
     public static void main(String[] args) {
         Integer[] nums = {1, 2, 4, 3};
         swap(nums, 2, 3);
