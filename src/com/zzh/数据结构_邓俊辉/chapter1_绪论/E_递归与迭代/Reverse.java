@@ -1,6 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter1_绪论.E_递归与迭代;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+import com.zzh.util.ArrayUtils;
 
 /**
  * 数组元素的颠倒

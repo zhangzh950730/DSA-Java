@@ -1,8 +1,7 @@
 package com.zzh.数据结构_邓俊辉.chapter12_排序;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+import com.zzh.util.ArrayUtils;
 
-import java.lang.annotation.ElementType;
 import java.util.Random;
 
 /**

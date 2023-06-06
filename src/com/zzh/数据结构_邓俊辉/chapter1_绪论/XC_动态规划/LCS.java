@@ -1,6 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter1_绪论.XC_动态规划;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+import com.zzh.util.ArrayUtils;
 
 /**
  * 求两个字符串的最长公共子序列的长度

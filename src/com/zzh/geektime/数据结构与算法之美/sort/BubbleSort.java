@@ -1,8 +1,6 @@
 package com.zzh.geektime.数据结构与算法之美.sort;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
-
-import javax.xml.stream.FactoryConfigurationError;
+import com.zzh.util.ArrayUtils;
 
 /**
  * @author zhangzhihao

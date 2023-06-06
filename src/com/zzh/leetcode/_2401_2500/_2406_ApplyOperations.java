@@ -1,6 +1,6 @@
 package com.zzh.leetcode._2401_2500;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+import com.zzh.util.ArrayUtils;
 
 /**
  * @author <a href="mailto:374752943@qq.com">ZhiHao Zhang</a>

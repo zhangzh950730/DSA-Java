@@ -1,6 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter4_栈与队列;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
+import com.zzh.util.ArrayUtils;
 import com.zzh.数据结构_邓俊辉.chapter2_向量.Vector;
 
 /**

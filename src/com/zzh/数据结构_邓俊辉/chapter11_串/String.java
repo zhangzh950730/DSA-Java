@@ -1,7 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter11_串;
 
-import com.zzh.geektime.数据结构与算法之美.array.ArrayUtils;
-import kotlin.Pair;
+import com.zzh.util.ArrayUtils;
 
 import java.util.Arrays;
 

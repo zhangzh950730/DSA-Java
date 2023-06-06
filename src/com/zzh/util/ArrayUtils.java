@@ -1,4 +1,4 @@
-package com.zzh.geektime.数据结构与算法之美.array;
+package com.zzh.util;
 
 /**
  * @author zhangzhihao
@@ -7,6 +7,12 @@ public class ArrayUtils {
 
     public static void swap(Object[] array, int i, int j) {
         Object tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+    public static void swap(int[] array, int i, int j) {
+        int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
     }
