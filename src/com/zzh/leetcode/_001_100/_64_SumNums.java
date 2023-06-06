@@ -1,6 +1,6 @@
 package com.zzh.leetcode;
 
-import com.zzh.Assert;
+import org.junit.Assert;
 
 /**
  * 面试题64. 求1+2+…+n
@@ -21,13 +21,13 @@ public class _64_SumNums {
 
         public static void main(String[] args) {
             int i = sumNums(3);
-            Assert.equals(i, 6);
+            Assert.assertEquals(i, 6);
 
             i = sumNums(9);
-            Assert.equals(i, 45);
+            Assert.assertEquals(i, 45);
 
             i = sumNums(2);
-            Assert.equals(i, 3);
+            Assert.assertEquals(i, 3);
         }
     }
 }

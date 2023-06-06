@@ -1,8 +1,6 @@
 package com.zzh.leetcode;
 
-import com.zzh.Assert;
-
-import java.util.Map;
+import org.junit.Assert;
 
 /**
  * 买卖股票的最佳时机
@@ -30,13 +28,13 @@ public class _121_MaxProfit {
 
         public static void main(String[] args) {
             int i = maxProfit(new int[]{7, 1, 5, 3, 6, 4});
-            Assert.equals(i, 5);
+            Assert.assertEquals(i, 5);
 
             i = maxProfit(new int[]{7, 6, 4, 3, 1});
-            Assert.equals(i, 0);
+            Assert.assertEquals(i, 0);
 
             i = maxProfit(new int[]{});
-            Assert.equals(i, 0);
+            Assert.assertEquals(i, 0);
         }
     }
 }
