@@ -1,7 +1,5 @@
 package com.zzh.leetcode._101_200;
 
-import java.util.Currency;
-
 /**
  * @author <a href="mailto:374752943@qq.com">ZhiHao Zhang</a>
  */
@@ -58,7 +56,7 @@ public class _148_SortList {
         ListNode sentinel = new ListNode(0, head);
         for (int i = 1; i < length; i <<= 1) {
             ListNode prev = sentinel, curr = sentinel.next;
-            while (curr != null){
+            while (curr != null) {
                 ListNode head1 = curr;
                 for (int j = 1; j < i && curr.next != null; j++) {
                     curr = curr.next;
@@ -109,21 +107,23 @@ public class _148_SortList {
         return merge(listNode1, listNode2);
     }
 
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
 }
 
-class ListNode {
-    int val;
-    ListNode next;
 
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
