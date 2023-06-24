@@ -2,7 +2,7 @@ package com.zzh.leetcode._501_600
 
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 fun findMaximizedCapital(k: Int, w: Int, profits: IntArray, capital: IntArray): Int {
     val list = ArrayList<IntArray>()

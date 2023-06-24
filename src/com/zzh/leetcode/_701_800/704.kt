@@ -1,6 +1,6 @@
 package com.zzh.leetcode._701_800
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 fun search(nums: IntArray, target: Int): Int {
     var lo = 0

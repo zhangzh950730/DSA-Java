@@ -1,6 +1,6 @@
 package com.zzh.leetcode._1201_1300
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 fun balancedStringSplit(s: String): Int {
     val first = s.first()

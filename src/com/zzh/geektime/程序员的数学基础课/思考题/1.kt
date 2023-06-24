@@ -1,6 +1,6 @@
 package com.zzh.geektime.程序员的数学基础课.思考题
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 fun decimalToBinary(decimal: Int): String {
     var raw = decimal

@@ -1,6 +1,6 @@
 package com.zzh.leetcode.剑指Offer
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 fun fib(n: Int): Int {
     if (n <= 1) {

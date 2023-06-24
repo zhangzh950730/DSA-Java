@@ -1,6 +1,6 @@
 package com.zzh.leetcode.剑指Offer
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null

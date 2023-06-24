@@ -1,6 +1,6 @@
 package com.zzh.leetcode._101_200
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 /**
  * 动态规划 空间优化

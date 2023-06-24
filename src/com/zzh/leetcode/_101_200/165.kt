@@ -1,6 +1,6 @@
 package com.zzh.leetcode._101_200
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 /**
  * 双指针

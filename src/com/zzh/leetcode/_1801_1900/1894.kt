@@ -1,6 +1,6 @@
 package com.zzh.leetcode._1801_1900
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 fun chalkReplacer(chalk: IntArray, k: Int): Int {
     var sum = 0L

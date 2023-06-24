@@ -1,6 +1,6 @@
 package com.zzh.leetcode._1501_1600
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
 
 /**
  * O(n^3)
