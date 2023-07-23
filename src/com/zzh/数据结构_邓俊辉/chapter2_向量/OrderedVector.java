@@ -1,7 +1,7 @@
 package com.zzh.数据结构_邓俊辉.chapter2_向量;
 
 import com.zzh.util.ArrayUtils;
-import kotlin.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * @author zhangzhihao
@@ -31,10 +31,10 @@ public class OrderedVector extends Vector<Integer> {
 
     public int search(Integer e, int lo, int hi) {
         Pair<Boolean, Fib> fib = fib(hi - lo);
-        if (!fib.getFirst()) {
+        if (!fib.getKey()) {
             return binSearch3(e, lo, hi);
         } else {
-            return fibSearch(e, lo, hi, fib.getSecond());
+            return fibSearch(e, lo, hi, fib.getValue());
         }
     }
 
@@ -83,7 +83,7 @@ public class OrderedVector extends Vector<Integer> {
             i = j - i;
             prev = new Fib(index, j, prev);
         }
-        return new Pair<>(prev.get() == size, prev);
+        return Pair.of(prev.get() == size, prev);
     }
 
     /**

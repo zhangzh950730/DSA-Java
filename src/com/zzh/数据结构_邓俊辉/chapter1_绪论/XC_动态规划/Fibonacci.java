@@ -1,7 +1,5 @@
 package com.zzh.数据结构_邓俊辉.chapter1_绪论.XC_动态规划;
 
-import kotlin.Deprecated;
-
 import java.util.Arrays;
 
 /**
@@ -76,7 +74,7 @@ public class Fibonacci {
         return fib;
     }
 
-    @Deprecated(message = "指数级算法")
+    @Deprecated
     private static void fibonacci1(int n) {
         for (int i = 0; i < n; i++) {
             int fib = fibonacci1_0(i);

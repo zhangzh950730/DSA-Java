@@ -1,6 +1,6 @@
 package com.zzh.数据结构_邓俊辉.chapter1_绪论.E_递归与迭代;
 
-import kotlin.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * 求数组中最大的两个元素
@@ -12,14 +12,14 @@ public class Max2 {
     public static void main(String[] args) {
         int[] array = {3, 5, 2, 4, 6, 8, 9, 1, 7};
         Pair<Integer, Integer> pair = max2_1(array);
-        System.out.println("max first: " + pair.getFirst());
-        System.out.println("max second: " + pair.getSecond());
+        System.out.println("max first: " + pair.getKey());
+        System.out.println("max second: " + pair.getValue());
         pair = max2_2(array);
-        System.out.println("max first: " + pair.getFirst());
-        System.out.println("max second: " + pair.getSecond());
+        System.out.println("max first: " + pair.getKey());
+        System.out.println("max second: " + pair.getValue());
         pair = max2_3(array, 0, array.length - 1);
-        System.out.println("max first: " + pair.getFirst());
-        System.out.println("max second: " + pair.getSecond());
+        System.out.println("max first: " + pair.getKey());
+        System.out.println("max second: " + pair.getValue());
     }
 
     /**
@@ -43,7 +43,7 @@ public class Max2 {
                 maxSecondIndex = i;
             }
         }
-        return new Pair<>(array[maxFirstIndex], array[maxSecondIndex]);
+        return Pair.of(array[maxFirstIndex], array[maxSecondIndex]);
     }
 
     /**
@@ -66,7 +66,7 @@ public class Max2 {
                 }
             }
         }
-        return new Pair<>(maxFirst, maxSecond);
+        return Pair.of(maxFirst, maxSecond);
     }
 
     private static Pair<Integer, Integer> max2_3(int[] array, int lo, int hi) {
@@ -79,7 +79,7 @@ public class Max2 {
                 maxFirst = array[lo];
                 maxSecond = array[hi];
             }
-            return new Pair<>(maxFirst, maxSecond);
+            return Pair.of(maxFirst, maxSecond);
         }
         if (lo + 2 == hi) {
             if (array[lo] < array[lo + 1]) {
@@ -99,20 +99,20 @@ public class Max2 {
                     maxSecond = array[hi];
                 }
             }
-            return new Pair<>(maxFirst, maxSecond);
+            return Pair.of(maxFirst, maxSecond);
         }
 
         int mid = (lo + hi) / 2;
         Pair<Integer, Integer> leftPair = max2_3(array, lo, mid);
         Pair<Integer, Integer> rightPair = max2_3(array, mid + 1, hi);
 
-        if (leftPair.getFirst() < rightPair.getFirst()) {
-            maxFirst = rightPair.getFirst();
-            maxSecond = leftPair.getFirst() < rightPair.getSecond() ? rightPair.getSecond() : leftPair.getFirst();
+        if (leftPair.getKey() < rightPair.getValue()) {
+            maxFirst = rightPair.getKey();
+            maxSecond = leftPair.getKey() < rightPair.getValue() ? rightPair.getValue() : leftPair.getKey();
         } else {
-            maxFirst = leftPair.getFirst();
-            maxSecond = leftPair.getSecond() < rightPair.getFirst() ? rightPair.getFirst() : leftPair.getSecond();
+            maxFirst = leftPair.getKey();
+            maxSecond = leftPair.getValue() < rightPair.getKey() ? rightPair.getKey() : leftPair.getValue();
         }
-        return new Pair<>(maxFirst, maxSecond);
+        return Pair.of(maxFirst, maxSecond);
     }
 }
