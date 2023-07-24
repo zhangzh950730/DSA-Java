@@ -1,6 +1,5 @@
 package com.zzh.leetcode._1001_1100;
 
-import com.zzh.leetcode._501_600.Solution;
 import org.junit.Assert;
 
 /**
