@@ -2,6 +2,7 @@ package com.zzh.leetcode._001_100;
 
 import org.junit.Assert;
 
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -39,6 +40,30 @@ public class _20_isValid {
     }
 
     public boolean isValid(String s) {
+        s = s.replaceAll(" ", "");
+        Map<Character, Character> map = Map.of(')', '(', ']', '[', '}', '{');
+        Stack<Character> stack = new Stack<>();
+        char[] chars = s.toCharArray();
+        for (char aChar : chars) {
+            switch (aChar) {
+                case '(':
+                case '[':
+                case '{':
+                    stack.push(aChar);
+                    break;
+                case ')':
+                case ']':
+                case '}':
+                    if (stack.empty() || stack.pop() != map.get(aChar)) return false;
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return stack.empty();
+    }
+
+    public boolean isValid1(String s) {
         s = s.replaceAll(" ", "");
         char[] chars = s.toCharArray();
         Stack<Character> stack = new Stack<>();
