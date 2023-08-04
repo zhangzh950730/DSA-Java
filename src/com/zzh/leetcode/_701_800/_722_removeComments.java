@@ -4,7 +4,6 @@ import org.junit.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * @author <a href="mailto:374752943@qq.com">ZhiHao Zhang</a>
