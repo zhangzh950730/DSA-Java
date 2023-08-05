@@ -1,6 +1,8 @@
 package com.zzh.leetcode._001_100;
 
 
+import com.zzh.leetcode.ListNode;
+
 /**
  * 两数相加
  * @author zhangzhihao
@@ -54,23 +56,6 @@ public class _2_AddTwoNumbers {
         }
     }
 
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
-    }
 }
 
 

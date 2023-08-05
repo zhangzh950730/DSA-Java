@@ -1,5 +1,7 @@
 package com.zzh.leetcode._001_100;
 
+import com.zzh.leetcode.ListNode;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -45,31 +47,6 @@ public class _23_mergeKLists {
             pre = pre.next;
         }
         return ans.next;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
     }
 
 }

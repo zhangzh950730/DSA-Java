@@ -1,5 +1,6 @@
 package com.zzh.leetcode._801_900;
 
+import com.zzh.leetcode.ListNode;
 import org.junit.Assert;
 
 /**
@@ -29,21 +30,4 @@ public class _876_middleNode {
         return slow;
     }
 
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }

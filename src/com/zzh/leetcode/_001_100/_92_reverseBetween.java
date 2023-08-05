@@ -1,5 +1,7 @@
 package com.zzh.leetcode._001_100;
 
+import com.zzh.leetcode.ListNode;
+
 /**
  * @author <a href="mailto:374752943@qq.com">ZhiHao Zhang</a>
  */
@@ -51,29 +53,4 @@ public class _92_reverseBetween {
         }
     }
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
-    }
 }
