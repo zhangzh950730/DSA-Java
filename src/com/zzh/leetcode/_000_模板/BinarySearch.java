@@ -1,7 +1,5 @@
 package com.zzh.leetcode._000_模板;
 
-import org.apache.bcel.generic.RETURN;
-
 /**
  * 二分的四种类型
  * 1.求大于等于target的第一个位置 lowerBound(target)
@@ -12,7 +10,6 @@ import org.apache.bcel.generic.RETURN;
  * @author <a href="mailto:374752943@qq.com">ZhiHao Zhang</a>
  */
 public class BinarySearch {
-
 
     /**
      * 二分模板 左闭右开

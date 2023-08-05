@@ -11,9 +11,9 @@ public class _153_findMin {
         int[] nums;
         int ans;
 
-        nums = new int[]{3, 4, 5, 1, 2};
+        nums = new int[]{4, 5, 6, 7, 0, 1, 2};
         ans = findMin.findMin(nums);
-        Assert.assertEquals(1, ans);
+        Assert.assertEquals(0, ans);
 
     }
 
@@ -21,9 +21,8 @@ public class _153_findMin {
         int left = -1, right = nums.length - 1, mid;
         while (left + 1 < right) {
             mid = left + (right - left) / 2;
-            if (nums[mid] < nums[nums.length - 1]) {
-                right = mid;
-            } else left = mid;
+            if (nums[mid] < nums[nums.length - 1]) right = mid;
+            else left = mid;
         }
         return nums[right];
     }
