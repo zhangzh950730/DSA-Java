@@ -14,7 +14,13 @@ public class _154_findMin {
     }
 
     public int findMin(int[] nums) {
-        // TODO ZhangZhiHao
-        return 0;
+        int left = -1, right = nums.length - 1, mid;
+        while (left + 1 < right) {
+            mid = left + (right - left) / 2;
+            if (nums[mid] < nums[right]) right = mid;
+            else if (nums[mid] > nums[right]) left = mid;
+            else right--;
+        }
+        return nums[right];
     }
 }
