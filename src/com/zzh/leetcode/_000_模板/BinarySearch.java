@@ -38,21 +38,7 @@ public class BinarySearch {
             if (nums[mid] < target) left = mid + 1;
             else right = mid - 1;
         }
-        return left /*或right*/;
+        return left;
     }
 
-    /**
-     * 二分模板 左开右开
-     *
-     * @return 大于等于target的第一个位置
-     */
-    private int lowerBound2(int[] nums, int target) {
-        int left = -1, right = nums.length, mid;
-        while (left + 1 < right) {
-            mid = left + (right - left) / 2;
-            if (nums[mid] < target) left = mid;
-            else right = mid;
-        }
-        return right;
-    }
 }
