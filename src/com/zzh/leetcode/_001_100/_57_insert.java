@@ -1,29 +1,34 @@
 package com.zzh.leetcode._001_100;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * @author <a href="mailto:374752943@qq.com">ZhiHao Zhang</a>
  */
-public class _56_Merge {
+public class _57_insert {
     public static void main(String[] args) {
-        _56_Merge merge = new _56_Merge();
+        _57_insert insert = new _57_insert();
         int[][] intervals;
+        int[] newInterval;
         int[][] ans;
 
-        intervals = new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-        ans = merge.merge(intervals);
+        intervals = new int[][]{{1, 3}, {6, 9}};
+        newInterval = new int[]{2, 5};
+        ans = insert.insert(intervals, newInterval);
         System.out.println("ans = " + ans);
 
-        intervals = new int[][]{{1, 4}, {4, 5}};
-        ans = merge.merge(intervals);
+        intervals = new int[][]{};
+        newInterval = new int[]{5, 7};
+        ans = insert.insert(intervals, newInterval);
         System.out.println("ans = " + ans);
-
     }
 
-
-    public int[][] merge(int[][] intervals) {
-        if (intervals.length == 0) return new int[0][2];
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        intervals = Arrays.copyOf(intervals, intervals.length + 1);
+        intervals[intervals.length - 1] = newInterval;
         Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
         List<int[]> ans = new ArrayList<>();
         for (int[] interval : intervals) {
