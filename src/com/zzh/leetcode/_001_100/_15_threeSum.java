@@ -1,7 +1,5 @@
 package com.zzh.leetcode._001_100;
 
-import com.zzh.数据结构_邓俊辉.chapter1_绪论.E_递归与迭代.Sum;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,34 +17,30 @@ public class _15_threeSum {
 
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> ans = new ArrayList<>();
-        int n = nums.length;
-        for (int i = 0; i < n - 2; i++) {
-            int num = nums[i];
-            if (i > 0 && num == nums[i - 1]) continue;
-            if (num + nums[i + 1] + nums[i + 2] > 0) break;
-            if (num + nums[n - 1] + nums[n - 2] < 0) continue;
-
-            int j = i + 1, k = n - 1;
+        List<List<Integer>> list = new ArrayList<>();
+        for (int i = 0; i < nums.length - 2; i++) {
+            int x = nums[i];
+            if (i > 0 && x == nums[i - 1]) continue;
+            if (x + nums[i + 1] + nums[i + 2] > 0) break;
+            if (x + nums[nums.length - 1] + nums[nums.length - 2] < 0) continue;
+            int j = i + 1, k = nums.length - 1;
             while (j < k) {
-                int sum = num + nums[j] + nums[k];
-                if (sum < 0) j++;
-                else if (sum > 0) k--;
-                else {
-                    ans.add(Arrays.asList(num, nums[j], nums[k]));
-
+                int s = x + nums[j] + nums[k];
+                if (s < 0) {
                     j++;
-                    while (j < k && nums[j] == nums[j - 1]) {
-                        j++;
-                    }
-
+                } else if (s > 0) {
                     k--;
-                    while (j < k && nums[k] == nums[k + 1]) {
+                } else {
+                    list.add(List.of(x, nums[j], nums[k]));
+                    do {
+                        j++;
+                    } while (j < k && nums[j] == nums[j - 1]);
+                    do {
                         k--;
-                    }
+                    } while (j < k && nums[k] == nums[k + 1]);
                 }
             }
         }
-        return ans;
+        return list;
     }
 }

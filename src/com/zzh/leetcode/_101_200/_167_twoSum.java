@@ -17,13 +17,13 @@ public class _167_twoSum {
     }
 
     public int[] twoSum(int[] numbers, int target) {
-        int left = 0, right = numbers.length - 1;
-        while (left < right) {
-            int num = numbers[left] + numbers[right];
-            if (num == target) break;
-            else if (num < target) left++;
-            else right--;
+        int lo = 0, hi = numbers.length - 1;
+        while (lo < hi) {
+            int condition = numbers[lo] + numbers[hi];
+            if (condition == target) break;
+            else if (condition < target) lo++;
+            else hi--;
         }
-        return new int[]{left + 1, right + 1};
+        return new int[]{lo + 1, hi + 1};
     }
 }

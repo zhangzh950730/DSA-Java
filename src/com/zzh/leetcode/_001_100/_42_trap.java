@@ -17,15 +17,16 @@ public class _42_trap {
      * 双指针
      */
     public int trap(int[] height) {
-        int n = height.length, left = 0, right = n - 1;
-        int preMax = 0, sufMax = 0, ans = 0;
-        while (left <= right) {
-            preMax = Math.max(preMax, height[left]);
-            sufMax = Math.max(sufMax, height[right]);
+        int preMax = 0, sufMax = 0;
+        int ans = 0;
+        int lo = 0, hi = height.length - 1;
+        while (lo <= hi) {
+            preMax = Math.max(preMax, height[lo]);
+            sufMax = Math.max(sufMax, height[hi]);
             if (preMax < sufMax) {
-                ans += preMax - height[left++];
+                ans += preMax - height[lo++];
             } else {
-                ans += sufMax - height[right--];
+                ans += sufMax - height[hi--];
             }
         }
         return ans;
@@ -33,24 +34,21 @@ public class _42_trap {
 
     /**
      * 前后缀
-     *
-     * @param height
-     * @return
      */
     public int trap1(int[] height) {
-        int n = height.length;
-        int[] preMax = new int[n];
-        preMax[0] = height[0];
-        for (int i = 1; i < n; i++) {
-            preMax[i] = Math.max(height[i], preMax[i - 1]);
+        int length = height.length;
+        int[] preMax = new int[length];
+        for (int i = 0; i < preMax.length; i++) {
+            if (i == 0) preMax[i] = height[i];
+            else preMax[i] = Math.max(preMax[i - 1], height[i]);
         }
-        int[] sufMax = new int[n];
-        sufMax[n - 1] = height[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            sufMax[i] = Math.max(height[i], sufMax[i + 1]);
+        int[] sufMax = new int[length];
+        for (int i = length - 1; i >= 0; i--) {
+            if (i == length - 1) sufMax[i] = height[i];
+            else sufMax[i] = Math.max(sufMax[i + 1], height[i]);
         }
         int ans = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < length; i++) {
             ans += Math.min(preMax[i], sufMax[i]) - height[i];
         }
         return ans;
