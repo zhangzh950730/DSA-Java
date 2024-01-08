@@ -16,31 +16,25 @@ public class _15_threeSum {
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
         Arrays.sort(nums);
-        List<List<Integer>> list = new ArrayList<>();
-        for (int i = 0; i < nums.length - 2; i++) {
-            int x = nums[i];
-            if (i > 0 && x == nums[i - 1]) continue;
-            if (x + nums[i + 1] + nums[i + 2] > 0) break;
-            if (x + nums[nums.length - 1] + nums[nums.length - 2] < 0) continue;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) break; // 排序后的数组, 第一个数字大于0, 则三个数的和必大于0
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // 相同数字的去重处理
             int j = i + 1, k = nums.length - 1;
             while (j < k) {
-                int s = x + nums[j] + nums[k];
-                if (s < 0) {
-                    j++;
-                } else if (s > 0) {
-                    k--;
-                } else {
-                    list.add(List.of(x, nums[j], nums[k]));
-                    do {
-                        j++;
-                    } while (j < k && nums[j] == nums[j - 1]);
-                    do {
-                        k--;
-                    } while (j < k && nums[k] == nums[k + 1]);
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum < 0) j++;
+                else if (sum > 0) k--;
+                else {
+                    // 加入当前结果
+                    ans.add(List.of(nums[i], nums[j], nums[k]));
+                    // 还需继续计算其他可能的结果, 但要先去重相同值
+                    do j++; while (j < k && nums[j] == nums[j - 1]);
+                    do k--; while (j < k && nums[k] == nums[k + 1]);
                 }
             }
         }
-        return list;
+        return ans;
     }
 }

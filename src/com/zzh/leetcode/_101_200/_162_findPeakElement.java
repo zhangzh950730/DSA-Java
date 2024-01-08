@@ -14,6 +14,10 @@ public class _162_findPeakElement {
         nums = new int[]{1, 2, 1, 3, 5, 6, 4};
         ans = findPeakElement.findPeakElement(nums);
         Assert.assertEquals(5, ans);
+
+        nums = new int[]{1};
+        ans = findPeakElement.findPeakElement(nums);
+        Assert.assertEquals(5, ans);
     }
 
     public int findPeakElement(int[] nums) {
