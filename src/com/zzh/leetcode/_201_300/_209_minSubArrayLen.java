@@ -9,14 +9,14 @@ public class _209_minSubArrayLen {
     }
 
     public int minSubArrayLen(int target, int[] nums) {
-        int n = nums.length, ans = n + 1, left = 0, s = 0;
-        for (int right = 0; right < nums.length; right++) {
-            s += nums[right];
-            while (s >= target) {
+        int n = nums.length, ans = n + 1, sum = 0, left = 0;
+        for (int right = 0; right < n; right++) {
+            sum += nums[right];
+            while (sum >= target) {
                 ans = Math.min(ans, right - left + 1);
-                s -= nums[left++];
+                sum -= nums[left++];
             }
         }
-        return ans > n ? 0 : ans;
+        return ans <= n ? ans : 0;
     }
 }

@@ -11,29 +11,22 @@ public class _3_lengthOfLongestSubstring {
         String s;
         int ans;
 
-        s = "abcabcbb";
+        s = "pwwkew";
         ans = lengthOfLongestSubstring.lengthOfLongestSubstring(s);
         Assert.assertEquals(3, ans);
-
-//        s = "bbbbb";
-//        ans = lengthOfLongestSubstring.lengthOfLongestSubstring(s);
-//        Assert.assertEquals(1, ans);
-
-//        s = "pwwkew";
-//        ans = lengthOfLongestSubstring.lengthOfLongestSubstring(s);
-//        Assert.assertEquals(3, ans);
 
     }
 
     public int lengthOfLongestSubstring(String s) {
-        int n = s.length(), ans = 0, left = 0;
-        int[] cnt = new int[128];
-        for (int right = 0; right < n; right++) {
-            char c = s.charAt(right);
-            ++cnt[c];
-            while (cnt[c] > 1) {
-                --cnt[s.charAt(left++)];
+        int ans = 0, left = 0;
+        char[] chars = s.toCharArray();
+        boolean[] has = new boolean[128];
+        for (int right = 0; right < chars.length; right++) {
+            char c = chars[right];
+            while (has[c]) { // 循环直到删除和c同样的字符
+                has[chars[left++]] = false;
             }
+            has[c] = true;
             ans = Math.max(ans, right - left + 1);
         }
         return ans;
